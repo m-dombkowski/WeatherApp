@@ -1,14 +1,15 @@
 const state = {
-  bookmarks: [],
+  cities: [],
 };
 
 const testBtn = document.querySelector(".test-btn");
 const input = document.querySelector("#input");
 const form = document.querySelector("#form");
 const inputV = document.getElementById("input");
-const searchContainer = document.querySelector(".container-search");
+const containerSearch = document.querySelector(".container-search");
 const addCity = document.querySelector(".add-city-button");
 const addContainer = document.querySelector(".add-city");
+const selectedCitiesList = document.querySelector(".selected-cities");
 
 const MY_API_KEY = "1dd8639e06977072c7c8fcaea598d700";
 
@@ -25,18 +26,54 @@ const getInputValue = function () {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   getDataForPrint(getInputValue());
-  searchContainer.classList.add("active");
-  searchContainer.innerHTML = "";
+  containerSearch.classList.add("active");
+  containerSearch.innerHTML = "";
 });
 
 document.addEventListener("click", function (event) {
   if (event.target.id === "add-city-button") {
     getDataForObject(getInputValue());
-    searchContainer.innerHTML = "";
-    searchContainer.classList.remove("active");
+    containerSearch.innerHTML = "";
+    containerSearch.classList.remove("active");
     inputV.value = "";
   }
+  if (event.target.id === "close") {
+    const target = event.target;
+    const parent = target.parentElement;
+    const children = parent.children;
+    let text;
+
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].classList.contains("city-name")) {
+        text = children[i].textContent;
+      }
+    }
+    const objectToClose = state.cities.find((element) => element.name == text);
+    const index = state.cities.indexOf(objectToClose);
+    if (objectToClose) {
+      state.cities.splice(index, 1);
+    }
+  }
 });
+
+const removeSelectedCity = function () {};
+
+const renderSelectedCities = function (data) {
+  let html = `
+  <li class='country'>
+    <button id='close'>x</button>
+    <h1 class="city-name">${data.name}</h1>
+    <p class="date-time">${data.time}</p>
+    <p class="weather-type">${data.weather}</p>
+    <h2 class="temperature">${data.temperature}°C</h2>
+    <div class="secondary-information">
+      <p class="humidity">Humidity: ${data.humidity}%</p>
+      <p class="pressure">Pressure: ${data.pressure} hPa</p>
+    </div>
+  </li>`;
+
+  selectedCitiesList.insertAdjacentHTML("beforeend", html);
+};
 
 const unixToNormalTime = function (unixTimestamp) {
   let date = new Date(unixTimestamp * 1000);
@@ -56,7 +93,7 @@ const unixToDate = function (unixTimestamp) {
   return humanDateFormat;
 };
 
-const renderCityCard = function (data) {
+const renderSearchedCity = function (data) {
   const html = `
   <h1 class="city-name">${data.name}</h1>
   <p class="date-time">${unixToNormalTime(data.dt + data.timezone - 3600)}</p>
@@ -71,12 +108,12 @@ const renderCityCard = function (data) {
     </div>
   `;
 
-  searchContainer.insertAdjacentHTML("beforeend", html);
+  containerSearch.insertAdjacentHTML("beforeend", html);
 };
 
-const getDataForPrint = function (city) {
+const getDataForPrint = function (cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${MY_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${MY_API_KEY}`
   )
     .then((response) => {
       if (!response.ok)
@@ -85,15 +122,15 @@ const getDataForPrint = function (city) {
     })
     .then((data) => {
       console.log(data);
-      renderCityCard(data);
+      renderSearchedCity(data);
     })
     .catch((err) => console.error(err))
-    .finally(() => (searchContainer.style.opacity = 1));
+    .finally(() => (containerSearch.style.opacity = 1));
 };
 
-const getDataForObject = function (city) {
+const getDataForObject = function (cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${MY_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${MY_API_KEY}`
   )
     .then((response) => {
       if (!response.ok)
@@ -101,37 +138,63 @@ const getDataForObject = function (city) {
       return response.json();
     })
     .then((data) => {
-      addToCityArray(state.bookmarks, data);
+      addToCityArray(state.cities, data);
     })
     .catch((err) => console.error(err))
-    .finally(() => (searchContainer.style.opacity = 1));
+    .finally(() => (containerSearch.style.opacity = 1));
 };
 
-const addToCityArray = function (array, data) {
-  let city = createCityObject(data);
+const addToCityArray = function (arrayCities, data) {
+  let cityObject = createCityObject(data);
 
-  const element = array.find((element) => element.name === city.name);
+  const element = arrayCities.find(
+    (element) => element.name === cityObject.name
+  );
   if (!element) {
-    array.push(city);
-    addToLocalStorage(array);
+    arrayCities.push(cityObject);
+    addToLocalStorage(cityObject.name, cityObject);
+    renderSelectedCities(getItemFromLocalStorage(cityObject.name));
+  } else {
+    console.log("You have already selected that city!");
   }
 
-  console.log(array);
+  console.log(arrayCities);
 };
 
-const addToLocalStorage = function (array) {
-  localStorage.setItem("cities", JSON.stringify(array));
+const addToLocalStorage = function (cityName, cityObject) {
+  localStorage.setItem(cityName, JSON.stringify(cityObject));
+};
+
+const getItemFromLocalStorage = function (cityName) {
+  return JSON.parse(localStorage.getItem(cityName));
+  // if (storage) state.cities.JSON.parse(storage);
+};
+
+const removeItemFromLocalStorage = function (cityName) {
+  localStorage.removeItem(cityName);
+};
+
+const getTest = function (array) {
+  array.forEach((element) => {
+    return element;
+  });
 };
 
 const createCityObject = function (data) {
-  const city = data;
-  // console.log(city);
+  const cityObject = data;
+  // console.log(cityObject);
   return {
-    name: city.name,
-    weather: city.weather[0].main,
-    time: unixToNormalTime(city.dt + city.timezone - 3600),
-    temperature: city.main.temp.toFixed(0),
-    humidity: city.main.humidity,
-    pressure: city.main.pressure,
+    name: cityObject.name,
+    weather: cityObject.weather[0].main,
+    time: unixToNormalTime(cityObject.dt + cityObject.timezone - 3600),
+    temperature: cityObject.main.temp.toFixed(0),
+    humidity: cityObject.main.humidity,
+    pressure: cityObject.main.pressure,
   };
+};
+
+const getSelectedCitiesData = function (array) {
+  array.forEach((element) => {
+    console.log(element.name);
+  });
 };
