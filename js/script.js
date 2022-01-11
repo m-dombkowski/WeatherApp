@@ -42,6 +42,7 @@ document.addEventListener("click", function (event) {
     const parent = target.parentElement;
     const children = parent.children;
     let text;
+    let city;
 
     for (let i = 0; i < children.length; i++) {
       if (children[i].classList.contains("city-name")) {
@@ -52,11 +53,17 @@ document.addEventListener("click", function (event) {
     const index = state.cities.indexOf(objectToClose);
     if (objectToClose) {
       state.cities.splice(index, 1);
+
+      for (let i = 0; i < localStorage.length; i++) {
+        if (objectToClose.name === localStorage.key([i])) {
+          city = localStorage.key([i]);
+          console.log(city);
+          removeItemFromLocalStorage(city);
+        }
+      }
     }
   }
 });
-
-const removeSelectedCity = function () {};
 
 const renderSelectedCities = function (data) {
   let html = `
@@ -198,3 +205,12 @@ const getSelectedCitiesData = function (array) {
     console.log(element.name);
   });
 };
+
+const innit = function () {
+  for (let i = 0; i < localStorage.length; i++) {
+    renderSelectedCities(getItemFromLocalStorage(localStorage.key([i])));
+    state.cities.push(getItemFromLocalStorage(localStorage.key([i])));
+  }
+};
+
+innit();
