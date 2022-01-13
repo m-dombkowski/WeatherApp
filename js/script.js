@@ -1,3 +1,6 @@
+import { MY_API_KEY } from "./config.js";
+// import "core-js/stable";
+
 const state = {
   cities: [],
 };
@@ -8,10 +11,9 @@ const form = document.querySelector("#form");
 const inputV = document.getElementById("input");
 const containerSearch = document.querySelector(".container-search");
 const addCity = document.querySelector(".add-city-button");
+const country = document.querySelector(".country");
 const addContainer = document.querySelector(".add-city");
 const selectedCitiesList = document.querySelector(".selected-cities");
-
-const MY_API_KEY = "1dd8639e06977072c7c8fcaea598d700";
 
 const getInputValue = function () {
   let inputValue = document.getElementById("input").value;
@@ -40,6 +42,7 @@ document.addEventListener("click", function (event) {
   if (event.target.id === "close") {
     const target = event.target;
     const parent = target.parentElement;
+    console.log(parent);
     const children = parent.children;
     let text;
     let city;
@@ -49,6 +52,7 @@ document.addEventListener("click", function (event) {
         text = children[i].textContent;
       }
     }
+    parent.innerHTML = "";
     const objectToClose = state.cities.find((element) => element.name == text);
     const index = state.cities.indexOf(objectToClose);
     if (objectToClose) {
@@ -57,13 +61,18 @@ document.addEventListener("click", function (event) {
       for (let i = 0; i < localStorage.length; i++) {
         if (objectToClose.name === localStorage.key([i])) {
           city = localStorage.key([i]);
-          console.log(city);
+
           removeItemFromLocalStorage(city);
         }
       }
+      // renderSelectedCities(getItemFromLocalStorage(city));
     }
   }
 });
+
+const cityNotFoundMsg = function (message) {
+  alert(message);
+};
 
 const renderSelectedCities = function (data) {
   let html = `
@@ -74,8 +83,8 @@ const renderSelectedCities = function (data) {
     <p class="weather-type">${data.weather}</p>
     <h2 class="temperature">${data.temperature}°C</h2>
     <div class="secondary-information">
-      <p class="humidity">Humidity: ${data.humidity}%</p>
-      <p class="pressure">Pressure: ${data.pressure} hPa</p>
+      <p class="humidity">Wilgotność: ${data.humidity}%</p>
+      <p class="pressure">Ciśnienie: ${data.pressure} hPa</p>
     </div>
   </li>`;
 
@@ -104,11 +113,11 @@ const renderSearchedCity = function (data) {
   const html = `
   <h1 class="city-name">${data.name}</h1>
   <p class="date-time">${unixToNormalTime(data.dt + data.timezone - 3600)}</p>
-  <p class="weather-type">${data.weather[0].main}</p>
+  <p class="weather-type">${firstCapital(data.weather[0].description)}</p>
   <h2 class="temperature">${data.main.temp.toFixed(0)}°C</h2>
   <div class="secondary-information">
-    <p class="humidity">Humidity: ${data.main.humidity}%</p>
-    <p class="pressure">Pressure: ${data.main.pressure} hPa</p>
+    <p class="humidity">Wilgotność: ${data.main.humidity}%</p>
+    <p class="pressure">Ciśnienie: ${data.main.pressure} hPa</p>
   </div>
   <div class="add-city">
       <button id="add-city-button">Add this city</button>
@@ -118,13 +127,14 @@ const renderSearchedCity = function (data) {
   containerSearch.insertAdjacentHTML("beforeend", html);
 };
 
+// ${firstCapital(data.weather[0].description)}
+
 const getDataForPrint = function (cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${MY_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
     .then((response) => {
-      if (!response.ok)
-        throw new Error(`Something wrong with api call ${response.status}`);
+      if (!response.ok) throw new Error(cityNotFoundMsg("Invalid city name!"));
       return response.json();
     })
     .then((data) => {
@@ -137,7 +147,7 @@ const getDataForPrint = function (cityName) {
 
 const getDataForObject = function (cityName) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${MY_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
     .then((response) => {
       if (!response.ok)
@@ -162,7 +172,8 @@ const addToCityArray = function (arrayCities, data) {
     addToLocalStorage(cityObject.name, cityObject);
     renderSelectedCities(getItemFromLocalStorage(cityObject.name));
   } else {
-    console.log("You have already selected that city!");
+    cityNotFoundMsg("You have already selected that city!");
+    // console.log("You have already selected that city!");
   }
 
   console.log(arrayCities);
@@ -192,7 +203,7 @@ const createCityObject = function (data) {
   // console.log(cityObject);
   return {
     name: cityObject.name,
-    weather: cityObject.weather[0].main,
+    weather: firstCapital(cityObject.weather[0].description),
     time: unixToNormalTime(cityObject.dt + cityObject.timezone - 3600),
     temperature: cityObject.main.temp.toFixed(0),
     humidity: cityObject.main.humidity,
@@ -214,3 +225,10 @@ const innit = function () {
 };
 
 innit();
+
+const firstCapital = function (string) {
+  let word = string.split(" ");
+  const sentence = word[0].charAt(0).toUpperCase() + string.slice(1);
+  console.log(sentence);
+  return sentence;
+};
