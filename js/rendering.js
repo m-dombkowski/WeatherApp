@@ -1,5 +1,14 @@
-import { unixToNormalTime } from "./unixConvertions";
-import { containerSearch, selectedCitiesList } from "./variables";
+import { getCityName, getDetailsAboutCity } from "./apiCalls";
+import { getItemFromLocalStorage } from "./localStorage";
+import { unixToNormalTime, unixToDate } from "./unixConvertions";
+import {
+  containerSearch,
+  selectedCitiesList,
+  details,
+  detailsContainer,
+  goBackButton,
+  titleContainer,
+} from "./variables";
 
 export const renderSearchedCity = function (data) {
   const html = `
@@ -30,9 +39,41 @@ export const renderSelectedCities = function (data) {
     <p class="humidity">Wilgotność: ${data.humidity}%</p>
     <p class="pressure">Ciśnienie: ${data.pressure} hPa</p>
   </div>
+  <button id='check-details'>Check 12 hours forecast!</button>
 </li>
 `;
   selectedCitiesList.insertAdjacentHTML("beforeend", html);
+};
+
+export const renderDetailsAboutCity = function (data, index) {
+  let html = `
+  
+  <li class="details">
+    <p class="details-time">${unixToDate(
+      data.hourly[index].dt + data.timezone_offset - 3600
+    )}</p>
+    <p class="details-temp">Temperatura: ${Math.round(
+      data.hourly[index].temp
+    )}°C</p>
+    <p class="details-feels-like">Odczuwalna: ${Math.round(
+      data.hourly[index].feels_like
+    )}°C</p>
+    <p class="details-wind">Wiatr: ${(
+      data.hourly[index].wind_speed * 3.6
+    ).toFixed(1)} km/h</p>
+  </li>`;
+
+  details.insertAdjacentHTML("beforeend", html);
+};
+
+export const renderDetailsTitle = function (text) {
+  // const lat = data.lat;
+  // const lon = data.lon;
+  // console.log(lat, lon);
+  let html = `
+  <h1 class="details-city">${text}</h1>
+  `;
+  detailsContainer.insertAdjacentHTML("afterbegin", html);
 };
 
 export const firstCapital = function (string) {

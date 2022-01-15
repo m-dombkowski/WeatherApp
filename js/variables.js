@@ -11,3 +11,9 @@ export const addCity = document.querySelector(".add-city-button");
 export const country = document.querySelector(".country");
 export const addContainer = document.querySelector(".add-city");
 export const selectedCitiesList = document.querySelector(".selected-cities");
+export const containerSelected = document.querySelector(".container-selected");
+export const details = document.querySelector(".details-forecast");
+export const detailsContainer = document.querySelector(".details-container");
+export const goBackButton = document.querySelector(".go-back");
+
+export const detailsTitle = document.querySelector(".details-city");

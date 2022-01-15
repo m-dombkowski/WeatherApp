@@ -1,6 +1,24 @@
-import { getDataForObject, getDataForPrint, getInputValue } from "./apiCalls";
-import { containerSearch, state, inputV } from "./variables";
+import {
+  getDataForObject,
+  getDataForPrint,
+  getInputValue,
+  getDetailsAboutCity,
+} from "./apiCalls";
+import {
+  containerSearch,
+  state,
+  inputV,
+  goBackButton,
+  containerSelected,
+  detailsContainer,
+  details,
+  titleContainer,
+  detailsTitle,
+  form,
+} from "./variables";
 import { removeItemFromLocalStorage } from "./localStorage";
+import { getInputValue } from "./script";
+import { renderDetailsTitle } from "./rendering";
 
 export const formHandler = function (event) {
   event.preventDefault();
@@ -16,6 +34,37 @@ export const documentHandler = function (event) {
     containerSearch.classList.remove("active");
     inputV.value = "";
   }
+
+  if (event.target.id === "go-back") {
+    goBackButton.classList.toggle("hide");
+    containerSearch.classList.toggle("hide");
+    containerSelected.classList.toggle("hide");
+    detailsContainer.classList.add("hide");
+    form.classList.remove("hide");
+    details.innerHTML = "";
+  }
+
+  if (event.target.id === "check-details") {
+    const target = event.target;
+    const parent = target.parentElement;
+    const children = parent.children;
+    let text;
+
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].classList.contains("city-name")) {
+        text = children[i].textContent;
+      }
+    }
+    goBackButton.classList.toggle("hide");
+    containerSearch.classList.toggle("hide");
+    containerSelected.classList.toggle("hide");
+    detailsContainer.classList.remove("hide");
+    form.classList.add("hide");
+    console.log(text);
+    renderDetailsTitle(text);
+    getDetailsAboutCity(text);
+  }
+
   if (event.target.id === "close") {
     const target = event.target;
     const parent = target.parentElement;

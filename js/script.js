@@ -13,6 +13,11 @@ document.addEventListener("click", function (event) {
   documentHandler(event);
 });
 
+export const getInputValue = function () {
+  let inputValue = document.getElementById("input").value;
+  return inputValue;
+};
+
 export const createCityObject = function (data) {
   const cityObject = data;
   // console.log(cityObject);
