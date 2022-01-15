@@ -1,13 +1,9 @@
-import { getCityName, getDetailsAboutCity } from "./apiCalls";
-import { getItemFromLocalStorage } from "./localStorage";
 import { unixToNormalTime, unixToDate } from "./unixConvertions";
 import {
   containerSearch,
   selectedCitiesList,
   details,
-  detailsContainer,
-  goBackButton,
-  titleContainer,
+  titleDetailsContainer,
 } from "./variables";
 
 export const renderSearchedCity = function (data) {
@@ -66,14 +62,15 @@ export const renderDetailsAboutCity = function (data, index) {
   details.insertAdjacentHTML("beforeend", html);
 };
 
-export const renderDetailsTitle = function (text) {
+export const renderDetailsTitle = function (data) {
   // const lat = data.lat;
   // const lon = data.lon;
   // console.log(lat, lon);
+  console.log(data);
   let html = `
-  <h1 class="details-city">${text}</h1>
+  <h1 class="details-city">${data}</h1>
   `;
-  detailsContainer.insertAdjacentHTML("afterbegin", html);
+  titleDetailsContainer.insertAdjacentHTML("afterbegin", html);
 };
 
 export const firstCapital = function (string) {

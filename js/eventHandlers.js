@@ -10,15 +10,12 @@ import {
   inputV,
   goBackButton,
   containerSelected,
-  detailsContainer,
   details,
-  titleContainer,
-  detailsTitle,
   form,
+  titleDetailsContainer,
 } from "./variables";
 import { removeItemFromLocalStorage } from "./localStorage";
 import { getInputValue } from "./script";
-import { renderDetailsTitle } from "./rendering";
 
 export const formHandler = function (event) {
   event.preventDefault();
@@ -39,9 +36,12 @@ export const documentHandler = function (event) {
     goBackButton.classList.toggle("hide");
     containerSearch.classList.toggle("hide");
     containerSelected.classList.toggle("hide");
-    detailsContainer.classList.add("hide");
+
+    titleDetailsContainer.classList.add("hide");
+    details.classList.add("hide");
     form.classList.remove("hide");
-    details.innerHTML = "";
+    details.textContent = "";
+    titleDetailsContainer.innerHTML = "";
   }
 
   if (event.target.id === "check-details") {
@@ -58,10 +58,11 @@ export const documentHandler = function (event) {
     goBackButton.classList.toggle("hide");
     containerSearch.classList.toggle("hide");
     containerSelected.classList.toggle("hide");
-    detailsContainer.classList.remove("hide");
+
+    titleDetailsContainer.classList.remove("hide");
+    details.classList.remove("hide");
     form.classList.add("hide");
     console.log(text);
-    renderDetailsTitle(text);
     getDetailsAboutCity(text);
   }
 

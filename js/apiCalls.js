@@ -1,6 +1,6 @@
-import { MY_API_KEY, state, containerSearch, details } from "./variables";
+import { MY_API_KEY, state, containerSearch } from "./variables";
 import { addToCityArray } from "./script";
-import { unixToDate } from "./unixConvertions";
+
 import {
   renderSearchedCity,
   cityNotFoundMsg,
@@ -8,7 +8,7 @@ import {
   renderDetailsTitle,
 } from "./rendering.js";
 
-export const getDataForPrint = function (cityName) {
+export const getDataForPrint = async function (cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
@@ -24,7 +24,7 @@ export const getDataForPrint = function (cityName) {
     .finally(() => (containerSearch.style.opacity = 1));
 };
 
-export const getDataForObject = function (cityName) {
+export const getDataForObject = async function (cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
@@ -41,7 +41,7 @@ export const getDataForObject = function (cityName) {
     .finally(() => (containerSearch.style.opacity = 1));
 };
 
-export const getCityName = function (lat, lon) {
+export const getCityName = async function (lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}`
   )
@@ -51,7 +51,7 @@ export const getCityName = function (lat, lon) {
       return response.json();
     })
     .then((data) => {
-      return data;
+      renderDetailsTitle(data.city.name);
       // console.log(data);
       // const cityName = data.city.name;
       // console.log(cityName.typeOf);
@@ -61,7 +61,7 @@ export const getCityName = function (lat, lon) {
 
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-export const getDetailsAboutCity = function (cityName) {
+export const getDetailsAboutCity = async function (cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
@@ -80,8 +80,8 @@ export const getDetailsAboutCity = function (cityName) {
           return response.json();
         })
         .then((data) => {
+          getCityName(data.lat, data.lon);
           console.log(data);
-          // renderDetailsTitle(data.lat, data.lon);
           data.hourly.forEach((obj) => {
             const index = data.hourly.indexOf(obj) + 1;
             if (index <= 12) {

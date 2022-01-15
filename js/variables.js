@@ -15,5 +15,6 @@ export const containerSelected = document.querySelector(".container-selected");
 export const details = document.querySelector(".details-forecast");
 export const detailsContainer = document.querySelector(".details-container");
 export const goBackButton = document.querySelector(".go-back");
+export const titleDetailsContainer = document.querySelector(".title-container");
 
 export const detailsTitle = document.querySelector(".details-city");
