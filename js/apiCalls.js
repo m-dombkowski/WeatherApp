@@ -3,9 +3,9 @@ import { addToCityArray } from "./script";
 
 import {
   renderSearchedCity,
-  cityNotFoundMsg,
   renderDetailsAboutCity,
   renderDetailsTitle,
+  renderErrorMessage,
 } from "./rendering.js";
 
 import { config, data1, data2, labelsArray, myChart } from "./chart";
@@ -18,12 +18,17 @@ export const getDataForPrint = async function (cityName) {
     .then((response) => {
       if (!response.ok) {
         containerSearch.style.border = "none";
-        throw new Error(cityNotFoundMsg("Invalid city name!"));
+        throw new Error(
+          renderErrorMessage(
+            "Nie znaleziono miasta o takiej nazwie, spróbuj ponownie"
+          )
+        );
       }
       return response.json();
     })
     .then((data) => {
       renderSearchedCity(data);
+      containerSearch.classList.add("active");
     })
     .catch((err) => console.error(err))
     .finally(() => (containerSearch.style.opacity = 1));
@@ -35,7 +40,11 @@ export const getDataForObject = async function (cityName) {
   )
     .then((response) => {
       if (!response.ok)
-        throw new Error(`Something wrong with api call ${response.status}`);
+        throw new Error(
+          renderErrorMessage(
+            `Wystąpił błąd podczas pobierania danych ${response.status}`
+          )
+        );
       return response.json();
     })
     .then((data) => {
@@ -51,7 +60,11 @@ export const getCityName = async function (lat, lon) {
   )
     .then((response) => {
       if (!response.ok)
-        throw new Error(`Something wrong with api call ${response.status}`);
+        throw new Error(
+          renderErrorMessage(
+            `Wystąpił błąd podczas pobierania danych ${response.status}`
+          )
+        );
       return response.json();
     })
     .then((data) => {
@@ -67,7 +80,11 @@ export const getDetailsAboutCity = async function (cityName) {
   )
     .then((response) => {
       if (!response.ok)
-        throw new Error(`Something wrong with api call ${response.status}`);
+        throw new Error(
+          renderErrorMessage(
+            `Wystąpił błąd podczas pobierania danych ${response.status}`
+          )
+        );
       return response.json();
     })
     .then((data) => {
@@ -76,7 +93,11 @@ export const getDetailsAboutCity = async function (cityName) {
       )
         .then((response) => {
           if (!response.ok)
-            throw new Error(`Something wrong with api call ${response.status}`);
+            throw new Error(
+              renderErrorMessage(
+                `Wystąpił błąd podczas pobierania danych ${response.status}`
+              )
+            );
           return response.json();
         })
         .then((objectData) => {
@@ -85,19 +106,19 @@ export const getDetailsAboutCity = async function (cityName) {
           let timeForGraph;
           let feelLikeTempForGraph;
           let realTempForGraph;
-          objectData.hourly.forEach((obj) => {
-            let index = objectData.hourly.indexOf(obj);
+          objectData.hourly.forEach((object) => {
+            let index = objectData.hourly.indexOf(object);
             if (index < 12) {
-              console.log(obj);
+              console.log(object);
               timeForGraph = unixToNormalTime(
-                obj.dt + objectData.timezone_offset - 3600
+                object.dt + objectData.timezone_offset - 3600
               );
               labelsArray.push(timeForGraph);
 
-              realTempForGraph = obj.temp;
+              realTempForGraph = object.temp;
               data1.data.push(realTempForGraph);
 
-              feelLikeTempForGraph = obj.feels_like;
+              feelLikeTempForGraph = object.feels_like;
               data2.data.push(feelLikeTempForGraph);
 
               renderDetailsAboutCity(objectData, index);

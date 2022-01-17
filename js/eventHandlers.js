@@ -16,6 +16,7 @@ import {
   chartContainer,
   searchContainer,
   startSearchButton,
+  formContainer,
 } from "./variables";
 import { removeItemFromLocalStorage } from "./localStorage";
 import { getInputValue } from "./script";
@@ -25,12 +26,12 @@ export const startSearch = function (event) {
   event.preventDefault();
   searchContainer.classList.remove("hide");
   startSearchButton.classList.add("hide");
+  formContainer.classList.toggle("hide");
 };
 
 export const formHandler = function (event) {
   event.preventDefault();
   getDataForPrint(getInputValue());
-  containerSearch.classList.add("active");
 
   containerSearch.innerHTML = "";
 };
@@ -41,8 +42,8 @@ export const documentHandler = function (event) {
     containerSearch.innerHTML = "";
     containerSearch.classList.remove("active");
     inputV.value = "";
-    searchContainer.classList.add("hide");
-    startSearchButton.classList.remove("hide");
+    formContainer.classList.add("hide");
+    startSearchButton.classList.toggle("hide");
   }
 
   if (event.target.id === "go-back") {
@@ -51,8 +52,8 @@ export const documentHandler = function (event) {
     detailsFlexContainer.classList.add("hide");
     chartContainer.classList.add("hide");
     details.classList.add("hide");
-    form.classList.remove("hide");
-    startSearchButton.classList.remove("hide");
+    searchContainer.classList.remove("hide");
+
     details.textContent = "";
     titleDetailsContainer.innerHTML = "";
 
@@ -78,8 +79,8 @@ export const documentHandler = function (event) {
     detailsFlexContainer.classList.remove("hide");
     chartContainer.classList.remove("hide");
     details.classList.remove("hide");
-    form.classList.add("hide");
-    startSearchButton.classList.add("hide");
+    searchContainer.classList.add("hide");
+
     console.log(text);
     getDetailsAboutCity(text);
     myChart;

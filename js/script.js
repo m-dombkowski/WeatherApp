@@ -1,7 +1,15 @@
-import { firstCapital } from "./rendering";
+import { firstCapital, renderErrorMessage } from "./rendering";
 import { unixToNormalTime } from "./unixConvertions";
-import { state, form, startSearchButton } from "./variables";
-import { renderSelectedCities, cityNotFoundMsg } from "./rendering";
+import {
+  state,
+  form,
+  startSearchButton,
+  selectedCitiesList,
+  errorWindow,
+  errorMessage,
+  closeErrorWindow,
+} from "./variables";
+import { renderSelectedCities, renderErrorMessage } from "./rendering";
 import { formHandler, documentHandler, startSearch } from "./eventHandlers";
 import { addToLocalStorage, getItemFromLocalStorage } from "./localStorage";
 
@@ -15,6 +23,18 @@ form.addEventListener("submit", function (event) {
 
 document.addEventListener("click", function (event) {
   documentHandler(event);
+});
+
+window.addEventListener("click", function (event) {
+  if (event.target == errorWindow) {
+    errorMessage.textContent = "";
+    errorWindow.style.display = "none";
+  }
+});
+
+closeErrorWindow.addEventListener("click", function (event) {
+  errorMessage.textContent = "";
+  errorWindow.style.display = "none";
 });
 
 export const getInputValue = function () {
@@ -46,10 +66,20 @@ export const addToCityArray = function (arrayCities, data) {
     addToLocalStorage(cityObject.name, cityObject);
     renderSelectedCities(getItemFromLocalStorage(cityObject.name));
   } else {
-    cityNotFoundMsg("You have already selected that city!");
+    renderErrorMessage("Już śledzisz to miasto!");
   }
 
   console.log(arrayCities);
+};
+
+export const test = function () {
+  if (state.cities.length > 0) {
+    let html = `<h1 class="selected-title">Twoje ulubione miasta</h1>`;
+    selectedCitiesList.insertAdjacentHTML("afterbegin", html);
+  } else {
+    let html = `<h1 class="selected-title">Nie śledzisz jeszcze żadnego miasta</h1>`;
+    selectedCitiesList.insertAdjacentHTML("afterbegin", html);
+  }
 };
 
 const innit = function () {
