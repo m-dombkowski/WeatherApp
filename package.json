@@ -4,6 +4,7 @@
   "description": "my first app",
   "main": "index.js",
   "dependencies": {
+    "chart.js": "^3.7.0",
     "core-js": "^3.20.2",
     "parcel": "^2.2.0"
   },

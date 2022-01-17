@@ -17,7 +17,7 @@ export const renderSearchedCity = function (data) {
   <p class="pressure">Ciśnienie: ${data.main.pressure} hPa</p>
 </div>
 <div class="add-city">
-  <button id="add-city-button">Add this city</button>
+  <button id="add-city-button">Dodaj miasto do ulubionych</button>
 </div>
 `;
   containerSearch.insertAdjacentHTML("beforeend", html);
@@ -35,7 +35,7 @@ export const renderSelectedCities = function (data) {
     <p class="humidity">Wilgotność: ${data.humidity}%</p>
     <p class="pressure">Ciśnienie: ${data.pressure} hPa</p>
   </div>
-  <button id='check-details'>Check 12 hours forecast!</button>
+  <button id='check-details'>Sprawdź pogodę na 12 godzin!</button>
 </li>
 `;
   selectedCitiesList.insertAdjacentHTML("beforeend", html);
@@ -48,13 +48,13 @@ export const renderDetailsAboutCity = function (data, index) {
     <p class="details-time">${unixToDate(
       data.hourly[index].dt + data.timezone_offset - 3600
     )}</p>
-    <p class="details-temp">Temperatura: ${Math.round(
-      data.hourly[index].temp
+    <p class="details-temp">Temperatura: ${data.hourly[index].temp.toFixed(
+      1
     )}°C</p>
-    <p class="details-feels-like">Odczuwalna: ${Math.round(
-      data.hourly[index].feels_like
-    )}°C</p>
-    <p class="details-wind">Wiatr: ${(
+    <p class="details-feels-like">Odczuwalna: ${data.hourly[
+      index
+    ].feels_like.toFixed(1)}°C</p>
+    <p class="details-wind">Wiatr:</br> ${(
       data.hourly[index].wind_speed * 3.6
     ).toFixed(1)} km/h</p>
   </li>`;

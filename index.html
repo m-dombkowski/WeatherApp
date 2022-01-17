@@ -13,12 +13,15 @@
       <button class="test-btn">Call</button>
     </div> -->
 
-    <div class="container">
+    <div class="container hide">
       <form id="form">
-        <input id="input" type="text" placeholder="Type City Name" />
+        <input id="input" type="text" placeholder="Wpisz nazwe miasta" />
+        <button class="search-button">
+          <img class="search" src="svg_icons/search.svg" />
+        </button>
       </form>
     </div>
-
+    <button class="start-search">Add City</button>
     <ul class="search-container"></ul>
 
     <div class="container-search">
@@ -31,7 +34,9 @@
         <p class="pressure">1000 hPa</p>
       </div>-->
     </div>
+
     <div class="container-selected">
+      <h1 class="selected-title">Twoje ulubione miasta</h1>
       <ul class="selected-cities">
         <!--  <h1 class="city-name">krakow</h1>
       <p class="date-time">08.01.2022 22:15</p>
@@ -45,8 +50,11 @@
     </div>
 
     <div class="test">
-      <button class="go-back hide" id="go-back">Go back</button>
-      <div class="title-container hide"></div>
+      <div class="details-flex hide">
+        <p class="details-city-p">Prognoza 12 godzinna dla:</p>
+        <div class="title-container"></div>
+        <button class="go-back" id="go-back">&leftarrow; Go back</button>
+      </div>
 
       <ul class="details-forecast hide">
         <!-- <li class="details">
@@ -55,7 +63,12 @@
           <p class="details-wind"></p>
         </li> -->
       </ul>
+      <div class="chart-container hide">
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
     <script type="module" src="js/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>

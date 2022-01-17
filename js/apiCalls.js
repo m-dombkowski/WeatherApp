@@ -8,16 +8,21 @@ import {
   renderDetailsTitle,
 } from "./rendering.js";
 
+import { config, data1, data2, labelsArray, myChart } from "./chart";
+import { unixToNormalTime } from "./unixConvertions";
+
 export const getDataForPrint = async function (cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
   )
     .then((response) => {
-      if (!response.ok) throw new Error(cityNotFoundMsg("Invalid city name!"));
+      if (!response.ok) {
+        containerSearch.style.border = "none";
+        throw new Error(cityNotFoundMsg("Invalid city name!"));
+      }
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       renderSearchedCity(data);
     })
     .catch((err) => console.error(err))
@@ -34,7 +39,6 @@ export const getDataForObject = async function (cityName) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       addToCityArray(state.cities, data);
     })
     .catch((err) => console.error(err))
@@ -43,7 +47,7 @@ export const getDataForObject = async function (cityName) {
 
 export const getCityName = async function (lat, lon) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${MY_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=pl&appid=${MY_API_KEY}`
   )
     .then((response) => {
       if (!response.ok)
@@ -52,10 +56,6 @@ export const getCityName = async function (lat, lon) {
     })
     .then((data) => {
       renderDetailsTitle(data.city.name);
-      // console.log(data);
-      // const cityName = data.city.name;
-      // console.log(cityName.typeOf);
-      // details.innerHTML = cityName;
     });
 };
 
@@ -79,14 +79,31 @@ export const getDetailsAboutCity = async function (cityName) {
             throw new Error(`Something wrong with api call ${response.status}`);
           return response.json();
         })
-        .then((data) => {
-          getCityName(data.lat, data.lon);
-          console.log(data);
-          data.hourly.forEach((obj) => {
-            const index = data.hourly.indexOf(obj) + 1;
-            if (index <= 12) {
-              renderDetailsAboutCity(data, index);
+        .then((objectData) => {
+          getCityName(objectData.lat, objectData.lon);
+
+          let timeForGraph;
+          let feelLikeTempForGraph;
+          let realTempForGraph;
+          objectData.hourly.forEach((obj) => {
+            let index = objectData.hourly.indexOf(obj);
+            if (index < 12) {
+              console.log(obj);
+              timeForGraph = unixToNormalTime(
+                obj.dt + objectData.timezone_offset - 3600
+              );
+              labelsArray.push(timeForGraph);
+
+              realTempForGraph = obj.temp;
+              data1.data.push(realTempForGraph);
+
+              feelLikeTempForGraph = obj.feels_like;
+              data2.data.push(feelLikeTempForGraph);
+
+              renderDetailsAboutCity(objectData, index);
+              myChart.update(config);
             }
+            myChart;
           });
         });
     });

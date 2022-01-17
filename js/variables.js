@@ -5,6 +5,7 @@ export const state = {
 };
 
 export const form = document.querySelector("#form");
+export const searchContainer = document.querySelector(".container");
 export const inputV = document.getElementById("input");
 export const containerSearch = document.querySelector(".container-search");
 export const addCity = document.querySelector(".add-city-button");
@@ -16,5 +17,7 @@ export const details = document.querySelector(".details-forecast");
 export const detailsContainer = document.querySelector(".details-container");
 export const goBackButton = document.querySelector(".go-back");
 export const titleDetailsContainer = document.querySelector(".title-container");
-
+export const chartContainer = document.querySelector(".chart-container");
+export const detailsFlexContainer = document.querySelector(".details-flex");
 export const detailsTitle = document.querySelector(".details-city");
+export const startSearchButton = document.querySelector(".start-search");

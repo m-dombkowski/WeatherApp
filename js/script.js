@@ -1,9 +1,13 @@
 import { firstCapital } from "./rendering";
 import { unixToNormalTime } from "./unixConvertions";
-import { state } from "./variables";
+import { state, form, startSearchButton } from "./variables";
 import { renderSelectedCities, cityNotFoundMsg } from "./rendering";
-import { formHandler, documentHandler } from "./eventHandlers";
+import { formHandler, documentHandler, startSearch } from "./eventHandlers";
 import { addToLocalStorage, getItemFromLocalStorage } from "./localStorage";
+
+startSearchButton.addEventListener("click", function (event) {
+  startSearch(event);
+});
 
 form.addEventListener("submit", function (event) {
   formHandler(event);
