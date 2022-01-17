@@ -1,0 +1,84 @@
+@media (max-width: 1300px) {
+  .container-search {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .selected-cities {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1140px) {
+  .details-forecast {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .selected-cities {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 980px) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .container-search {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .selected-cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .details-forecast {
+    column-gap: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .details-forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .go-back {
+    margin-left: 0;
+  }
+
+  .details-city-p {
+    display: none;
+  }
+
+  .container-search {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selected-cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .details-forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 470px) {
+  .container-search {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-cities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 395px) {
+  .details-forecast {
+    grid-template-columns: 1fr;
+  }
+  .chart-container {
+    display: none;
+  }
+}
