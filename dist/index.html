@@ -1,1 +1,56 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/index.e0107241.css"><link rel="stylesheet" href="/index.718e584b.css"><title>Weather app</title></head><body> <div class="error-window"> <div class="close-btn"><button class="close-error-window">x</button></div> <div class="error-msg"></div> </div> <div class="container"> <div class="form-container hide"> <form id="form"> <input id="input" type="text" placeholder="Wpisz nazwe miasta"> <button class="search-button"> <img class="search" src="/search.dec9e112.svg"> </button> </form> </div> <button class="start-search">Znajdź miasto</button> </div> <div class="container-search"> <ul class="search-container"></ul> </div> <div class="container-selected"> <ul class="selected-cities"></ul> </div> <div class="details-container"> <div class="details-flex hide"> <p class="details-city-p">Prognoza 12 godzinna dla:</p> <div class="title-container"></div> <button class="go-back" id="go-back">Go back</button> </div> <ul class="details-forecast hide"></ul> <div class="chart-container hide"> <canvas id="myChart"></canvas> </div> </div> <script type="module" src="/index.8d49ed02.js"></script> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.f8c4dc3e.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/index.cb41b962.css">
+    <link rel="stylesheet" href="/index.9933ec2f.css">
+
+    <title>Weather app</title>
+  </head>
+  <body>
+    <div class="error-window">
+      <div class="close-btn"><button class="close-error-window">x</button></div>
+      <div class="error-msg"></div>
+    </div>
+    <div class="container">
+      <div class="form-container hide">
+        <form id="form">
+          <input id="input" type="text" placeholder="Wpisz nazwe miasta">
+          <button class="search-button">
+            <img class="search" src="/search.6ce18025.svg">
+          </button>
+        </form>
+      </div>
+      <button class="start-search">Znajdź miasto</button>
+    </div>
+
+    <div class="container-search">
+      <ul class="search-container"></ul>
+    </div>
+
+    <div class="container-selected">
+      <ul class="selected-cities"></ul>
+    </div>
+
+    <div class="details-container">
+      <div class="details-flex hide">
+        <p class="details-city-p">Prognoza 12 godzinna dla:</p>
+        <div class="title-container"></div>
+        <button class="go-back" id="go-back">Go back</button>
+      </div>
+
+      <ul class="details-forecast hide"></ul>
+      <div class="chart-container hide">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <script src="/index.5c84c386.js" defer=""></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
