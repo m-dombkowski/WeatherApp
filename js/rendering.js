@@ -31,7 +31,7 @@ export const renderSearchedCity = function (data) {
 export const renderSelectedCities = function (data) {
   let html = `
   <li class="country">
-    <button id="close" title="Usuń ze śledzonych">x</button>
+    <button class="close" title="Usuń ze śledzonych">x</button>
     <h1 class="city-name">${data.name}</h1>
     <p class="date-time">${data.time}</p>
     <p class="weather-type">${data.weather}</p>
@@ -40,7 +40,7 @@ export const renderSelectedCities = function (data) {
       <p class="humidity">Wilgotność:</br> ${data.humidity}%</p>
       <p class="pressure">Ciśnienie:</br> ${data.pressure} hPa</p>
     </div>
-    <button id='check-details'>Sprawdź pogodę na 12 godzin!</button>
+    <button class='check-details'>Sprawdź pogodę na 12 godzin!</button>
   </li>
 `;
   selectedCitiesList.insertAdjacentHTML("beforeend", html);
@@ -68,7 +68,6 @@ export const renderDetailsAboutCity = function (data, index) {
 };
 
 export const renderDetailsTitle = function (data) {
-  console.log(data);
   let html = `
   <h1 class="details-city">${data}</h1>
   `;

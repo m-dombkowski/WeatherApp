@@ -1,4 +1,13 @@
-import { MY_API_KEY, state, containerSearch } from "./variables";
+import {
+  MY_API_KEY,
+  state,
+  containerSearch,
+  API_URL,
+  BASE_API_URL,
+  COORDS_API_URL,
+  FORECAST_API_URL,
+  GET_CITY_NAME_URL,
+} from "./variables";
 import { addToCityArray } from "./script";
 
 import {
@@ -11,10 +20,8 @@ import {
 import { config, data1, data2, labelsArray, myChart } from "./chart";
 import { unixToNormalTime } from "./unixConvertions";
 
-export const getDataForPrint = async function (cityName) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
-  )
+export const getDataForPrint = function (cityName) {
+  fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
     .then((response) => {
       if (!response.ok) {
         containerSearch.style.border = "none";
@@ -27,6 +34,7 @@ export const getDataForPrint = async function (cityName) {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       renderSearchedCity(data);
       containerSearch.classList.add("active");
     })
@@ -34,10 +42,8 @@ export const getDataForPrint = async function (cityName) {
     .finally(() => (containerSearch.style.opacity = 1));
 };
 
-export const getDataForObject = async function (cityName) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
-  )
+export const getDataForObject = function (cityName) {
+  fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
     .then((response) => {
       if (!response.ok)
         throw new Error(
@@ -54,10 +60,8 @@ export const getDataForObject = async function (cityName) {
     .finally(() => (containerSearch.style.opacity = 1));
 };
 
-export const getCityName = async function (lat, lon) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=pl&appid=${MY_API_KEY}`
-  )
+export const getCityName = function (lat, lon) {
+  fetch(`${GET_CITY_NAME_URL}lat=${lat}&lon=${lon}&lang=pl&appid=${MY_API_KEY}`)
     .then((response) => {
       if (!response.ok)
         throw new Error(
@@ -68,16 +72,15 @@ export const getCityName = async function (lat, lon) {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       renderDetailsTitle(data.city.name);
     });
 };
 
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-export const getDetailsAboutCity = async function (cityName) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
-  )
+export const getDetailsAboutCity = function (cityName) {
+  fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
     .then((response) => {
       if (!response.ok)
         throw new Error(
@@ -89,7 +92,7 @@ export const getDetailsAboutCity = async function (cityName) {
     })
     .then((data) => {
       return fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=metric&lang=pl&appid=${MY_API_KEY}`
+        `${FORECAST_API_URL}lat=${data.coord.lat}&lon=${data.coord.lon}&units=metric&lang=pl&appid=${MY_API_KEY}`
       )
         .then((response) => {
           if (!response.ok)
@@ -101,6 +104,7 @@ export const getDetailsAboutCity = async function (cityName) {
           return response.json();
         })
         .then((objectData) => {
+          console.log(objectData);
           getCityName(objectData.lat, objectData.lon);
 
           let timeForGraph;
@@ -109,7 +113,6 @@ export const getDetailsAboutCity = async function (cityName) {
           objectData.hourly.forEach((object) => {
             let index = objectData.hourly.indexOf(object);
             if (index < 12) {
-              console.log(object);
               timeForGraph = unixToNormalTime(
                 object.dt + objectData.timezone_offset - 3600
               );
@@ -124,10 +127,61 @@ export const getDetailsAboutCity = async function (cityName) {
               renderDetailsAboutCity(objectData, index);
               myChart.update(config);
             }
-            myChart;
           });
         });
     });
 };
 
+// export const sialalal = function (objectData) {
+//   // getCityName(objectData.lat, objectData.lon);
+
+//   let timeForGraph;
+//   let feelLikeTempForGraph;
+//   let realTempForGraph;
+//   objectData.hourly.forEach((object) => {
+//     let index = objectData.hourly.indexOf(object);
+//     if (index < 12) {
+//       timeForGraph = unixToNormalTime(
+//         object.dt + objectData.timezone_offset - 3600
+//       );
+//       labelsArray.push(timeForGraph);
+
+//       realTempForGraph = object.temp;
+//       data1.data.push(realTempForGraph);
+
+//       feelLikeTempForGraph = object.feels_like;
+//       data2.data.push(feelLikeTempForGraph);
+
+//       renderDetailsAboutCity(objectData, index);
+//       myChart.update(config);
+//     }
+//     myChart;
+//   });
+// };
+
 // obj.temp obj.pressure obj.humidity
+
+// getCityName(objectData.lat, objectData.lon);
+
+// let timeForGraph;
+// let feelLikeTempForGraph;
+// let realTempForGraph;
+// objectData.hourly.forEach((object) => {
+//   let index = objectData.hourly.indexOf(object);
+//   if (index < 12) {
+//     timeForGraph = unixToNormalTime(
+//       object.dt + objectData.timezone_offset - 3600
+//     );
+//     labelsArray.push(timeForGraph);
+
+//     realTempForGraph = object.temp;
+//     data1.data.push(realTempForGraph);
+
+//     feelLikeTempForGraph = object.feels_like;
+//     data2.data.push(feelLikeTempForGraph);
+
+//     renderDetailsAboutCity(objectData, index);
+//     myChart.update(config);
+//   }
+//   myChart;
+// });

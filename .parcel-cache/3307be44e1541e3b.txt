@@ -1,4 +1,4 @@
-16259
+16273
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\pako\lib\zlib\gzheader.js121436361000000000 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\is-date-object\index.js121436361000000000 0
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\big.js\big.js121436361000000000 0
@@ -7,10 +7,10 @@
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-modules-values132865750122952517 1
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\is-generator-function\.eslintignore121436361000000000 0
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\verror\node_modules\core-util-is\test.js130924529580000000 0
-55C:\Users\dombk\OneDrive\Pulpit\Weather app\package.json132869134933725443 0
+55C:\Users\dombk\OneDrive\Pulpit\Weather app\package.json132869229755923407 0
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\yaml\browser\scalar.js121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\abortcontroller-polyfill132865750115552494 1
-47C:\Users\dombk\OneDrive\Pulpit\Weather app\dist132869177745585628 1
+47C:\Users\dombk\OneDrive\Pulpit\Weather app\dist132869933839329574 1
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\mdn-data\css\syntaxes.json121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\instance\concat.js121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\_baseWrapperValue.js121436361000000000 0
@@ -21,7 +21,7 @@
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\is-string\package.json132865750130052547 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\setimmediate.js121436361000000000 0
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\create-property-descriptor.js121436361000000000 0
-60C:\Users\dombk\OneDrive\Pulpit\Weather app\package-lock.json132868117328691369 0
+60C:\Users\dombk\OneDrive\Pulpit\Weather app\package-lock.json132869193707435956 0
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\engine-v8-version.js121436361000000000 0
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\css-tree\dist132865750015277276 1
 65C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\path-type132865750127042500 1
@@ -30,7 +30,7 @@
 71C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\forIn.js121436361000000000 0
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\icss-utils\node_modules\postcss\lib132865750013067273 1
 73C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\miller-rabin\1.js131378867350000000 0
-53C:\Users\dombk\OneDrive\Pulpit\Weather app\.gitignore132869135608812408 0
+53C:\Users\dombk\OneDrive\Pulpit\Weather app\.gitignore132869193975947009 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\json-schema-traverse\package.json132865750128832517 0
 86C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\string\blink.js121436361000000000 0
 63C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel132865750113422505 1
@@ -47,7 +47,7 @@
 105C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\styles\atelier-sulphurpool-light.css121436361000000000 0
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\word-wrap\package.json132865750118412507 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\number\constructor.js121436361000000000 0
-45C:\Users\dombk\OneDrive\Pulpit\Weather app\js132868119890382209 1
+45C:\Users\dombk\OneDrive\Pulpit\Weather app\js132869228920498122 1
 115C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\jsdom\lib\jsdom\living\generated\HTMLTableCaptionElement.js121436361000000000 0
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\flexbox.js121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\requires-port\.npmignore130598316790000000 0
@@ -97,7 +97,7 @@
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\dom-exception\index.js121436361000000000 0
 73C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\source-map-js\lib132865750006727277 1
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\css-tree\lib\utils\names.js121436361000000000 0
-53C:\Users\dombk\OneDrive\Pulpit\Weather app\index.html132869177674311882 0
+53C:\Users\dombk\OneDrive\Pulpit\Weather app\index.html132869222064083441 0
 77C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\_createFlow.js121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\number\to-fixed.js121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\source-map-js\lib\base64.js121436361000000000 0
@@ -112,7 +112,7 @@
 71C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\floor.js121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\os-browserify\browser.js131371328420000000 0
 65C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\jsesc\man132865750026707285 1
-55C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules132868117324531361 1
+55C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules132869193703356337 1
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\convert-source-map132865750124412508 1
 84C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\inherits\inherits_browser.js121436361000000000 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\difference.js121436361000000000 0
@@ -354,7 +354,7 @@
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\styles\isbl-editor-dark.css121436361000000000 0
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\uuid\bin\uuid121436361000000000 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\toIterator.js121436361000000000 0
-69C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.5c84c386.js.map132869121776423044 0
+69C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.5c84c386.js.map132869933839319581 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\types\scripts132865750033207276 1
 66C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\ansi-regex132865750115542503 1
 106C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\jsdom\lib\jsdom\living\generated\ScrollBehavior.js121436361000000000 0
@@ -512,6 +512,7 @@
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\overArgs.js121436361000000000 0
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\msgpackr\rollup.config.js121436361000000000 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\trimEnd.js121436361000000000 0
+101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\CHANGELOG.md121436361000000000 0
 67C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\buffer-from132865750133872501 1
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\on-finished\package.json132865750127232496 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\qs\test\stringify.js121436361000000000 0
@@ -966,7 +967,7 @@
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2017\CanonicalNumericIndexString.js121436361000000000 0
 66C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\domhandler132865750133392492 1
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\scala.js121436361000000000 0
-62C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv132865750133392492 1
+62C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv132869193703286317 1
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\traverse\node_modules\ms\license.md121436361000000000 0
 99C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\array\virtual\copy-within.js121436361000000000 0
 102C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\AbstractEqualityComparison.js121436361000000000 0
@@ -1006,7 +1007,7 @@
 105C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\Doxyfile121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\src\InternalConfig.js121436361000000000 0
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-modules-values\node_modules\chalk\types132865750015807299 1
-66C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.cb41b962.css132869121776263040 0
+66C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.cb41b962.css132869227042120768 0
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@nodelib\fs.scandir\out\utils\index.d.ts121436361000000000 0
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\features\instance\to-reversed.js121436361000000000 0
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\IsConcatSpreadable.js121436361000000000 0
@@ -1999,7 +2000,7 @@
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\http-proxy\.auto-changelog121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-discard-comments132865750125892505 1
 75C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-merge-rules132865750119672506 1
-58C:\Users\dombk\OneDrive\Pulpit\Weather app\js\rendering.js132869073558549963 0
+58C:\Users\dombk\OneDrive\Pulpit\Weather app\js\rendering.js132869188831101096 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\ordered-binary\index.js121436361000000000 0
 62C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\split2132865750119772514 1
 86C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\yaml\browser\dist\parse-cst.js121436361000000000 0
@@ -2281,6 +2282,7 @@
 86C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\content-disposition\HISTORY.md131257197650000000 0
 133C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-modules-local-by-default\node_modules\postcss\lib\css-syntax-error.js121436361000000000 0
 124C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\postcss-modules-extract-imports\node_modules\supports-color\index.js131792129460000000 0
+96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\LICENSE121436361000000000 0
 85C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\workers\src\Handle.js121436361000000000 0
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\terminal-link132865750121082502 1
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\electron-to-chromium\full-versions.js121436361000000000 0
@@ -2591,7 +2593,7 @@
 92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\join.js121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2021\HasOwnProperty.js121436361000000000 0
 72C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\xmlchars\xml\1.0132865749992287281 1
-70C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.9933ec2f.css.map132869121776373073 0
+70C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.9933ec2f.css.map132869227042360787 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\curryRight.js121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\har-schema\lib\content.json131370181680000000 0
 107C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\runtime-js\lib\helpers\browser\js-loader.js121436361000000000 0
@@ -2926,7 +2928,7 @@
 87C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\set-immediate.js121436361000000000 0
 70C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\type-check\lib132865749998117291 1
 107C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\babel-ast-utils\test\fixtures\valid-only.js121436361000000000 0
-75C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\package.json132865750133162504 0
+75C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\package.json132869193703255982 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\weak-lru-cache\README.md121436361000000000 0
 71C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\split.js121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2017\GetV.js121436361000000000 0
@@ -4785,6 +4787,7 @@
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\public-encrypt\browser.js121436361000000000 0
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\proposals\string-match-all.js121436361000000000 0
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\source-map-js\package.json132865750122782488 0
+98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\README.md121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\source-map-js\source-map.js121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\source-map-js\lib\mapping-list.js121436361000000000 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\node-resolver-core\src\builtins.js121436361000000000 0
@@ -5102,6 +5105,7 @@
 71C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\union.js121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\scss\an-old-hope.scss121436361000000000 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\sortedIndexOf.js121436361000000000 0
+101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\package.json132869193703255982 0
 85C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\react-refresh\build-info.json121436361000000000 0
 80C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\purgecss\lib\purgecss.js121436361000000000 0
 99C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\helpers\lib\helpers\objectSpread2.js121012626000000000 0
@@ -8295,6 +8299,7 @@
 99C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\scss\atelier-plateau-dark.scss121436361000000000 0
 92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\matlab.js121436361000000000 0
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\array\virtual\splice.js121436361000000000 0
+76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\lib\main.d.ts121436361000000000 0
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\hasIn.js121436361000000000 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\font-feature.js121436361000000000 0
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\identical.js121436361000000000 0
@@ -8552,6 +8557,7 @@
 102C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\index.js121436361000000000 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\object\has-own.js121436361000000000 0
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\unary.js121436361000000000 0
+98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\config.js121436361000000000 0
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\union.js121436361000000000 0
 105C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\jsdom\lib\jsdom\living\generated\HTMLBRElement.js121436361000000000 0
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\jake\node_modules\chalk\index.js.flow121436361000000000 0
@@ -8608,6 +8614,7 @@
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\_baseConvert.js121436361000000000 0
 84C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\_convertBrowser.js121436361000000000 0
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\_falseOptions.js121436361000000000 0
+92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\lib132869193702865966 1
 77C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\_mapping.js121436361000000000 0
 65C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\debug\src132865750024317295 1
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\lodash\fp\_util.js121436361000000000 0
@@ -10007,7 +10014,7 @@
 108C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\index.d.ts.map121436361000000000 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\maps132865750032007303 1
 84C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\generic-names\.idea\misc.xml121436361000000000 0
-74C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\favicon-16x16.f8c4dc3e.png132869177745555625 0
+74C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\favicon-16x16.f8c4dc3e.png132869227042970783 0
 112C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\maps\entities.json121436361000000000 0
 110C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\maps\legacy.json121436361000000000 0
 107C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\htmlparser2\node_modules\entities\lib\maps\xml.json121436361000000000 0
@@ -10404,14 +10411,14 @@
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\sql.js121436361000000000 0
 105C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@swc\helpers\src\_define_enumerable_properties.js132732112500000000 0
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es6-object-assign\dist132865750034037276 1
-68C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core132865750116822506 1
+68C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core132869193703086325 1
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\stan.js121436361000000000 0
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\stata.js121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\lib\RequestTracker.js121436361000000000 0
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\swift.js121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\tap.js121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\tcl.js121436361000000000 0
-66C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\lib132865750034357272 1
+66C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\lib132869193702935959 1
 92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\thrift.js121436361000000000 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\highlight.js\lib\languages\tp.js121436361000000000 0
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\OrdinaryDefineOwnProperty.js121436361000000000 0
@@ -10968,7 +10975,7 @@
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\utils\lib\alternatives.js121436361000000000 0
 77C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\es2017.js121436361000000000 0
 77C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\es2020.js121436361000000000 0
-66C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.9933ec2f.css132869121776333042 0
+66C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.9933ec2f.css132869227042340756 0
 77C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\es2021.js121436361000000000 0
 84C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2021\ToBigInt.js121436361000000000 0
 74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\es5.js121436361000000000 0
@@ -11563,7 +11570,7 @@
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\EnumerableOwnNames.js121436361000000000 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\FromPropertyDescriptor.js121436361000000000 0
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\Get.js121436361000000000 0
-58C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.html132869177745555625 0
+58C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.html132869926494540042 0
 87C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\GetIterator.js121436361000000000 0
 85C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\GetMethod.js121436361000000000 0
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\es-abstract\2016\GetPrototypeFromConstructor.js121436361000000000 0
@@ -11885,6 +11892,8 @@
 79C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv-expand\README.md121436361000000000 0
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv-expand\lib\main.js121436361000000000 0
 75C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\CHANGELOG.md121436361000000000 0
+95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\web-share.js121436361000000000 0
+74C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\config.d.ts121436361000000000 0
 72C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\config.js121436361000000000 0
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\dotenv\lib\env-options.js121436361000000000 0
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\helper-validator-identifier\package.json132865750115432514 0
@@ -12106,7 +12115,7 @@
 86C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\stable\string\blink.js121436361000000000 0
 99C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\cssstyle\lib\properties\backgroundRepeat.js121436361000000000 0
 95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\cssstyle\lib\properties\borderBottom.js121436361000000000 0
-62C:\Users\dombk\OneDrive\Pulpit\Weather app\js\eventHandlers.js132868997019221199 0
+62C:\Users\dombk\OneDrive\Pulpit\Weather app\js\eventHandlers.js132869189867620407 0
 100C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\cssstyle\lib\properties\borderBottomColor.js121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\runtime-service-worker\src132865749983157296 1
 97C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\features\async-iterator\reduce.js121436361000000000 0
@@ -12188,6 +12197,7 @@
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\math\sinh.js121436361000000000 0
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\modules\esnext.weak-map.delete-all.js121436361000000000 0
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\csso\lib\restructure\3-disjoinRuleset.js121436361000000000 0
+50C:\Users\dombk\OneDrive\Pulpit\Weather app\js\.env132869228920510002 0
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\csso\lib\restructure\7-mergeRuleset.js121436361000000000 0
 97C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\csso\lib\restructure\8-restructRuleset.js121436361000000000 0
 85C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\csso\lib\restructure\index.js121436361000000000 0
@@ -12300,7 +12310,7 @@
 104C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\keyboardevent-code.js121436361000000000 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\LICENSE121436361000000000 0
 95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\css-tree\lib\syntax\pseudo\nth-child.js121436361000000000 0
-65C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.5c84c386.js132869121776383054 0
+65C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.5c84c386.js132869933839299580 0
 98C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\lib\serializerCore.browser.js121436361000000000 0
 100C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\css-tree\lib\syntax\pseudo\nth-last-child.js121436361000000000 0
 102C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\css-tree\lib\syntax\pseudo\nth-last-of-type.js121436361000000000 0
@@ -13251,7 +13261,7 @@
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\async-from-sync-iterator.js121436361000000000 0
 102C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\lib\requests\AssetGraphRequest.js121436361000000000 0
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\async-iterator-iteration.js121436361000000000 0
-57C:\Users\dombk\OneDrive\Pulpit\Weather app\js\apiCalls.js132869085684258076 0
+57C:\Users\dombk\OneDrive\Pulpit\Weather app\js\apiCalls.js132869933838019618 0
 109C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\call-with-safe-iteration-closing.js121436361000000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\array\virtual\index.js121436361000000000 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\internals\classof-raw.js121436361000000000 0
@@ -13874,7 +13884,7 @@
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\reduce.js121436361000000000 0
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\string\bold.js121436361000000000 0
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\string\fixed.js121436361000000000 0
-55C:\Users\dombk\OneDrive\Pulpit\Weather app\js\script.js132869082599967523 0
+55C:\Users\dombk\OneDrive\Pulpit\Weather app\js\script.js132869926720393006 0
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\string\index.js121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@types\node\perf_hooks.d.ts132857946920000000 0
 84C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\es\string\italics.js121436361000000000 0
@@ -14324,7 +14334,7 @@
 100C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\reduce-right.js121436361000000000 0
 95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\reverse.js121436361000000000 0
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\slice.js121436361000000000 0
-70C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.cb41b962.css.map132869121776303051 0
+70C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.cb41b962.css.map132869227042140784 0
 92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\core-js\actual\array\virtual\some.js121436361000000000 0
 83C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\convert-source-map\index.js121436361000000000 0
 82C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\convert-source-map\LICENSE121436361000000000 0
@@ -14891,7 +14901,6 @@
 102C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\web-app-manifest.js121436361000000000 0
 78C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\ajv\lib\refs\data.json121436361000000000 0
 99C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\web-bluetooth.js121436361000000000 0
-95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\web-share.js121436361000000000 0
 91C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\webgl.js121436361000000000 0
 92C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\caniuse-lite\data\features\webgpu.js121436361000000000 0
 93C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\transformer-svg\lib\inline.js121436361000000000 0
@@ -15076,7 +15085,7 @@
 103C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@swc\helpers\lib\_apply_decorated_descriptor.js132811082760000000 0
 89C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\asynckit\lib\readable_asynckit.js131102257330000000 0
 87C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\asynckit\lib\readable_serial.js131101888710000000 0
-58C:\Users\dombk\OneDrive\Pulpit\Weather app\js\variables.js132869081530868786 0
+58C:\Users\dombk\OneDrive\Pulpit\Weather app\js\variables.js132869926836285664 0
 81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@swc\helpers\src\index.js132811082490000000 0
 95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\asynckit\lib\readable_serial_ordered.js131103332630000000 0
 76C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\async\component.json130764986630000000 0
@@ -15811,6 +15820,7 @@
 96C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\diagnostic\test\markdown.test.js121436361000000000 0
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\types\lib\constants\generated\index.js121012626000000000 0
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\diagnostic\lib\diagnostic.d.ts121436361000000000 0
+81C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules132869193703105960 1
 72C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\src132865750030207297 1
 95C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\test\InternalAsset.test.js121436361000000000 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\test\Parcel.test.js121436361000000000 0
@@ -15881,6 +15891,10 @@
 94C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\src\public\Environment.js121436361000000000 0
 101C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\src\public\MutableBundleGraph.js121436361000000000 0
 90C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\src\public\Symbols.js121436361000000000 0
+88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv132869193703286317 1
+107C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\lib\cli-options.js121436361000000000 0
+107C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\lib\env-options.js121436361000000000 0
+100C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\node_modules\dotenv\lib\main.js121436361000000000 0
 71C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\.bin\sshpk-sign132865750139112539 0
 88C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@babel\core\lib\config\plugin.js121012626000000000 0
 86C:\Users\dombk\OneDrive\Pulpit\Weather app\node_modules\@parcel\core\lib\AssetGraph.js121436361000000000 0
@@ -16257,4 +16271,4 @@
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.8d49ed02.js.map132869122914391611 0
 66C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.e0107241.css132869122914301975 0
 69C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\index.ee241a17.js.map132865730107439556 0
-67C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\search.6ce18025.svg132869121776333042 0
+67C:\Users\dombk\OneDrive\Pulpit\Weather app\dist\search.6ce18025.svg132869227044210766 0

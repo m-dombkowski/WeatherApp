@@ -1,3 +1,7 @@
+// const path = require("path");
+// require("dotenv").config({ path: path.resolve(__dirname, "../js/.env") });
+// console.log(process.env);
+
 import { firstCapital, renderErrorMessage } from "./rendering";
 import { unixToNormalTime } from "./unixConvertions";
 import {
@@ -32,7 +36,7 @@ window.addEventListener("click", function (event) {
   }
 });
 
-closeErrorWindow.addEventListener("click", function (event) {
+closeErrorWindow.addEventListener("click", function () {
   errorMessage.textContent = "";
   errorWindow.style.display = "none";
 });

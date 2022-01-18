@@ -3,6 +3,7 @@ import {
   getDataForPrint,
   getInputValue,
   getDetailsAboutCity,
+  sialalal,
 } from "./apiCalls";
 import {
   containerSearch,
@@ -10,7 +11,6 @@ import {
   inputV,
   containerSelected,
   details,
-  form,
   titleDetailsContainer,
   detailsFlexContainer,
   chartContainer,
@@ -62,15 +62,20 @@ export const documentHandler = function (event) {
     data1.data = [];
   }
 
-  if (event.target.id === "check-details") {
+  if (event.target.classList.contains("check-details")) {
     const target = event.target;
+    console.log(target);
     const parent = target.parentElement;
+    console.log(parent);
     const children = parent.children;
-    let text;
+    console.log(children);
+    let cityName;
 
     for (let i = 0; i < children.length; i++) {
       if (children[i].classList.contains("city-name")) {
-        text = children[i].textContent;
+        cityName = children[i].textContent;
+        console.log(cityName);
+        // cityName = children[i].textContent;
       }
     }
 
@@ -81,12 +86,10 @@ export const documentHandler = function (event) {
     details.classList.remove("hide");
     searchContainer.classList.add("hide");
 
-    console.log(text);
-    getDetailsAboutCity(text);
-    myChart;
+    getDetailsAboutCity(cityName);
   }
 
-  if (event.target.id === "close") {
+  if (event.target.classList.contains("close")) {
     const target = event.target;
     const parent = target.parentElement;
 

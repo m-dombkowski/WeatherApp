@@ -106,7 +106,7 @@ input {
 }
 
 #add-city-button,
-#check-details {
+.check-details {
   border: none;
   padding: 0.9rem 1.8rem;
   border-radius: 10px;
@@ -170,7 +170,7 @@ ul li {
   list-style: none;
 }
 
-#close {
+.close {
   font-size: 3rem;
   border: none;
   /* color: #f53b57; */
@@ -180,12 +180,12 @@ ul li {
   right: 7%;
 }
 
-#check-details {
+.check-details {
   background-color: #485460;
   color: #fff;
 }
 
-#check-details:hover {
+.check-details:hover {
   background-color: #323b43;
   /* color: #191919; */
 }
