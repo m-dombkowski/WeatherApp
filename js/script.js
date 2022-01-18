@@ -1,7 +1,3 @@
-// const path = require("path");
-// require("dotenv").config({ path: path.resolve(__dirname, "../js/.env") });
-// console.log(process.env);
-
 import { firstCapital, renderErrorMessage } from "./rendering";
 import { unixToNormalTime } from "./unixConvertions";
 import {
@@ -13,9 +9,15 @@ import {
   errorMessage,
   closeErrorWindow,
 } from "./variables";
-import { renderSelectedCities, renderErrorMessage } from "./rendering";
+import {
+  renderSelectedCities,
+  renderErrorMessage,
+  renderDetailsAboutCity,
+} from "./rendering";
 import { formHandler, documentHandler, startSearch } from "./eventHandlers";
 import { addToLocalStorage, getItemFromLocalStorage } from "./localStorage";
+
+import { labelsArray, data1, data2, config, myChart } from "./chart";
 
 startSearchButton.addEventListener("click", function (event) {
   startSearch(event);
@@ -74,6 +76,30 @@ export const addToCityArray = function (arrayCities, data) {
   }
 
   console.log(arrayCities);
+};
+
+export const loopingThroughObjectFromFetch = function (objectData) {
+  let timeForGraph;
+  let feelLikeTempForGraph;
+  let realTempForGraph;
+  objectData.hourly.forEach((object) => {
+    let index = objectData.hourly.indexOf(object);
+    if (index < 12) {
+      timeForGraph = unixToNormalTime(
+        object.dt + objectData.timezone_offset - 3600
+      );
+      labelsArray.push(timeForGraph);
+
+      realTempForGraph = object.temp;
+      data1.data.push(realTempForGraph);
+
+      feelLikeTempForGraph = object.feels_like;
+      data2.data.push(feelLikeTempForGraph);
+
+      renderDetailsAboutCity(objectData, index);
+      myChart.update(config);
+    }
+  });
 };
 
 export const test = function () {

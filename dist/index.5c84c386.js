@@ -527,16 +527,16 @@ parcelHelpers.export(exports, "createCityObject", ()=>createCityObject
 );
 parcelHelpers.export(exports, "addToCityArray", ()=>addToCityArray
 );
+parcelHelpers.export(exports, "loopingThroughObjectFromFetch", ()=>loopingThroughObjectFromFetch
+);
 parcelHelpers.export(exports, "test", ()=>test
 );
-// const path = require("path");
-// require("dotenv").config({ path: path.resolve(__dirname, "../js/.env") });
-// console.log(process.env);
 var _rendering = require("./rendering");
 var _unixConvertions = require("./unixConvertions");
 var _variables = require("./variables");
 var _eventHandlers = require("./eventHandlers");
 var _localStorage = require("./localStorage");
+var _chart = require("./chart");
 _variables.startSearchButton.addEventListener("click", function(event) {
     _eventHandlers.startSearch(event);
 });
@@ -583,6 +583,24 @@ const addToCityArray = function(arrayCities, data) {
     } else _rendering.renderErrorMessage("Już śledzisz to miasto!");
     console.log(arrayCities);
 };
+const loopingThroughObjectFromFetch = function(objectData) {
+    let timeForGraph;
+    let feelLikeTempForGraph;
+    let realTempForGraph;
+    objectData.hourly.forEach((object)=>{
+        let index = objectData.hourly.indexOf(object);
+        if (index < 12) {
+            timeForGraph = _unixConvertions.unixToNormalTime(object.dt + objectData.timezone_offset - 3600);
+            _chart.labelsArray.push(timeForGraph);
+            realTempForGraph = object.temp;
+            _chart.data1.data.push(realTempForGraph);
+            feelLikeTempForGraph = object.feels_like;
+            _chart.data2.data.push(feelLikeTempForGraph);
+            _rendering.renderDetailsAboutCity(objectData, index);
+            _chart.myChart.update(_chart.config);
+        }
+    });
+};
 const test = function() {
     if (_variables.state.cities.length > 0) {
         let html = `<h1 class="selected-title">Twoje ulubione miasta</h1>`;
@@ -604,7 +622,7 @@ const innit = function() {
 };
 innit();
 
-},{"./rendering":"l127X","./unixConvertions":"7zFZT","./variables":"bvO1j","./eventHandlers":"aiXIl","./localStorage":"5M63G","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"l127X":[function(require,module,exports) {
+},{"./rendering":"l127X","./unixConvertions":"7zFZT","./variables":"bvO1j","./eventHandlers":"aiXIl","./localStorage":"5M63G","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./chart":"04l2d"}],"l127X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "renderSearchedCity", ()=>renderSearchedCity
@@ -746,8 +764,6 @@ parcelHelpers.export(exports, "BASE_API_URL", ()=>BASE_API_URL
 );
 parcelHelpers.export(exports, "FORECAST_API_URL", ()=>FORECAST_API_URL
 );
-parcelHelpers.export(exports, "GET_CITY_NAME_URL", ()=>GET_CITY_NAME_URL
-);
 parcelHelpers.export(exports, "form", ()=>form
 );
 parcelHelpers.export(exports, "searchContainer", ()=>searchContainer
@@ -796,7 +812,6 @@ const state = {
 const MY_API_KEY = "1dd8639e06977072c7c8fcaea598d700";
 const BASE_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=`;
 const FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/onecall?`;
-const GET_CITY_NAME_URL = `https://api.openweathermap.org/data/2.5/forecast?`;
 const form = document.querySelector("#form");
 const searchContainer = document.querySelector(".container");
 const inputV = document.getElementById("input");
@@ -868,17 +883,10 @@ const documentHandler = function(event) {
     }
     if (event.target.classList.contains("check-details")) {
         const target = event.target;
-        console.log(target);
         const parent = target.parentElement;
-        console.log(parent);
         const children = parent.children;
-        console.log(children);
         let cityName;
-        for(let i = 0; i < children.length; i++)if (children[i].classList.contains("city-name")) {
-            cityName = children[i].textContent;
-            console.log(cityName);
-        // cityName = children[i].textContent;
-        }
+        for(let i = 0; i < children.length; i++)if (children[i].classList.contains("city-name")) cityName = children[i].textContent;
         _variables.containerSearch.classList.toggle("hide");
         _variables.containerSelected.classList.toggle("hide");
         _variables.detailsFlexContainer.classList.remove("hide");
@@ -920,123 +928,75 @@ parcelHelpers.export(exports, "getDataForPrint", ()=>getDataForPrint
 );
 parcelHelpers.export(exports, "getDataForObject", ()=>getDataForObject
 );
-parcelHelpers.export(exports, "getCityName", ()=>getCityName
-);
 parcelHelpers.export(exports, "getDetailsAboutCity", ()=>getDetailsAboutCity
 );
 var _variables = require("./variables");
 var _script = require("./script");
 var _renderingJs = require("./rendering.js");
-var _chart = require("./chart");
-var _unixConvertions = require("./unixConvertions");
 const getDataForPrint = function(cityName) {
     fetch(`${_variables.BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
-        if (!response.ok) {
-            _variables.containerSearch.style.border = "none";
-            throw new Error(_renderingJs.renderErrorMessage("Nie znaleziono miasta o takiej nazwie, spróbuj ponownie"));
-        }
+        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage("Nie znaleziono miasta o takiej nazwie, spróbuj ponownie."));
         return response.json();
     }).then((data)=>{
-        console.log(data);
         _renderingJs.renderSearchedCity(data);
-        _variables.containerSearch.classList.add("active");
     }).catch((err)=>console.error(err)
-    ).finally(()=>_variables.containerSearch.style.opacity = 1
     );
 };
 const getDataForObject = function(cityName) {
     fetch(`${_variables.BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
-        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}`));
+        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}.`));
         return response.json();
     }).then((data)=>{
         _script.addToCityArray(_variables.state.cities, data);
     }).catch((err)=>console.error(err)
-    ).finally(()=>_variables.containerSearch.style.opacity = 1
     );
 };
-const getCityName = function(lat, lon) {
-    fetch(`${_variables.GET_CITY_NAME_URL}lat=${lat}&lon=${lon}&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
-        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}`));
+const getObcjectWithCoords = function(coords) {
+    fetch(`${_variables.FORECAST_API_URL}lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
+        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}.`));
         return response.json();
-    }).then((data)=>{
-        console.log(data);
-        _renderingJs.renderDetailsTitle(data.city.name);
+    }).then((objectData)=>{
+        _script.loopingThroughObjectFromFetch(objectData);
     });
 };
-const getDetailsAboutCity = function(cityName) {
-    fetch(`${_variables.BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
-        if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}`));
-        return response.json();
-    }).then((data)=>{
-        return fetch(`${_variables.FORECAST_API_URL}lat=${data.coord.lat}&lon=${data.coord.lon}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
-            if (!response.ok) throw new Error(_renderingJs.renderErrorMessage(`Wystąpił błąd podczas pobierania danych ${response.status}`));
-            return response.json();
-        }).then((objectData)=>{
-            console.log(objectData);
-            getCityName(objectData.lat, objectData.lon);
-            let timeForGraph;
-            let feelLikeTempForGraph;
-            let realTempForGraph;
-            objectData.hourly.forEach((object)=>{
-                let index = objectData.hourly.indexOf(object);
-                if (index < 12) {
-                    timeForGraph = _unixConvertions.unixToNormalTime(object.dt + objectData.timezone_offset - 3600);
-                    _chart.labelsArray.push(timeForGraph);
-                    realTempForGraph = object.temp;
-                    _chart.data1.data.push(realTempForGraph);
-                    feelLikeTempForGraph = object.feels_like;
-                    _chart.data2.data.push(feelLikeTempForGraph);
-                    _renderingJs.renderDetailsAboutCity(objectData, index);
-                    _chart.myChart.update(_chart.config);
-                }
-            });
-        });
+const getDetailsAboutCity = async function(cityName) {
+    getJSON(cityName, "Wystąpił błąd podczas pobierania danych").then((data)=>{
+        const coords = data.coord;
+        _renderingJs.renderDetailsTitle(data.name);
+        getObcjectWithCoords(coords);
     });
-}; // export const sialalal = function (objectData) {
- //   // getCityName(objectData.lat, objectData.lon);
- //   let timeForGraph;
- //   let feelLikeTempForGraph;
- //   let realTempForGraph;
- //   objectData.hourly.forEach((object) => {
- //     let index = objectData.hourly.indexOf(object);
- //     if (index < 12) {
- //       timeForGraph = unixToNormalTime(
- //         object.dt + objectData.timezone_offset - 3600
- //       );
- //       labelsArray.push(timeForGraph);
- //       realTempForGraph = object.temp;
- //       data1.data.push(realTempForGraph);
- //       feelLikeTempForGraph = object.feels_like;
- //       data2.data.push(feelLikeTempForGraph);
- //       renderDetailsAboutCity(objectData, index);
- //       myChart.update(config);
- //     }
- //     myChart;
- //   });
+};
+const getJSON = function(cityName, errorMsg) {
+    return fetch(`${_variables.BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${_variables.MY_API_KEY}`).then((response)=>{
+        if (!response.ok) throw new Error(`${_renderingJs.renderErrorMessage(errorMsg)}`);
+        return response.json();
+    });
+}; // const fetchAPI = function (cityName) {
+ //   return fetch(
+ //     `${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
+ //   );
  // };
- // obj.temp obj.pressure obj.humidity
- // getCityName(objectData.lat, objectData.lon);
- // let timeForGraph;
- // let feelLikeTempForGraph;
- // let realTempForGraph;
- // objectData.hourly.forEach((object) => {
- //   let index = objectData.hourly.indexOf(object);
- //   if (index < 12) {
- //     timeForGraph = unixToNormalTime(
- //       object.dt + objectData.timezone_offset - 3600
- //     );
- //     labelsArray.push(timeForGraph);
- //     realTempForGraph = object.temp;
- //     data1.data.push(realTempForGraph);
- //     feelLikeTempForGraph = object.feels_like;
- //     data2.data.push(feelLikeTempForGraph);
- //     renderDetailsAboutCity(objectData, index);
- //     myChart.update(config);
- //   }
- //   myChart;
- // });
 
-},{"./variables":"bvO1j","./script":"ijsRf","./rendering.js":"l127X","./chart":"04l2d","./unixConvertions":"7zFZT","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"04l2d":[function(require,module,exports) {
+},{"./variables":"bvO1j","./script":"ijsRf","./rendering.js":"l127X","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5M63G":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "addToLocalStorage", ()=>addToLocalStorage
+);
+parcelHelpers.export(exports, "getItemFromLocalStorage", ()=>getItemFromLocalStorage
+);
+parcelHelpers.export(exports, "removeItemFromLocalStorage", ()=>removeItemFromLocalStorage
+);
+const addToLocalStorage = function(cityName, cityObject) {
+    localStorage.setItem(cityName, JSON.stringify(cityObject));
+};
+const getItemFromLocalStorage = function(cityName) {
+    return JSON.parse(localStorage.getItem(cityName));
+};
+const removeItemFromLocalStorage = function(cityName) {
+    localStorage.removeItem(cityName);
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"04l2d":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "labelsArray", ()=>labelsArray
@@ -1078,25 +1038,6 @@ const config = {
     }
 };
 const myChart = new Chart(document.getElementById("myChart"), config);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5M63G":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "addToLocalStorage", ()=>addToLocalStorage
-);
-parcelHelpers.export(exports, "getItemFromLocalStorage", ()=>getItemFromLocalStorage
-);
-parcelHelpers.export(exports, "removeItemFromLocalStorage", ()=>removeItemFromLocalStorage
-);
-const addToLocalStorage = function(cityName, cityObject) {
-    localStorage.setItem(cityName, JSON.stringify(cityObject));
-};
-const getItemFromLocalStorage = function(cityName) {
-    return JSON.parse(localStorage.getItem(cityName));
-};
-const removeItemFromLocalStorage = function(cityName) {
-    localStorage.removeItem(cityName);
-};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["6ZNIn","ijsRf"], "ijsRf", "parcelRequirebbde")
 

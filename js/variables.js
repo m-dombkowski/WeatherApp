@@ -3,10 +3,8 @@ export const state = {
 };
 
 export const MY_API_KEY = "1dd8639e06977072c7c8fcaea598d700";
-// console.log(MY_API_KEY);
 export const BASE_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=`;
 export const FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/onecall?`;
-export const GET_CITY_NAME_URL = `https://api.openweathermap.org/data/2.5/forecast?`;
 export const form = document.querySelector("#form");
 export const searchContainer = document.querySelector(".container");
 export const inputV = document.getElementById("input");

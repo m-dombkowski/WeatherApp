@@ -3,7 +3,7 @@ import {
   getDataForPrint,
   getInputValue,
   getDetailsAboutCity,
-  sialalal,
+  fetch,
 } from "./apiCalls";
 import {
   containerSearch,
@@ -20,7 +20,7 @@ import {
 } from "./variables";
 import { removeItemFromLocalStorage } from "./localStorage";
 import { getInputValue } from "./script";
-import { myChart, labelsArray, data2, data1 } from "./chart";
+import { labelsArray, data2, data1 } from "./chart";
 
 export const startSearch = function (event) {
   event.preventDefault();
@@ -64,18 +64,13 @@ export const documentHandler = function (event) {
 
   if (event.target.classList.contains("check-details")) {
     const target = event.target;
-    console.log(target);
     const parent = target.parentElement;
-    console.log(parent);
     const children = parent.children;
-    console.log(children);
     let cityName;
 
     for (let i = 0; i < children.length; i++) {
       if (children[i].classList.contains("city-name")) {
         cityName = children[i].textContent;
-        console.log(cityName);
-        // cityName = children[i].textContent;
       }
     }
 

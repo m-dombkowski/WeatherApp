@@ -2,44 +2,33 @@ import {
   MY_API_KEY,
   state,
   containerSearch,
-  API_URL,
   BASE_API_URL,
-  COORDS_API_URL,
   FORECAST_API_URL,
-  GET_CITY_NAME_URL,
 } from "./variables";
-import { addToCityArray } from "./script";
+import { addToCityArray, loopingThroughObjectFromFetch } from "./script";
 
 import {
   renderSearchedCity,
-  renderDetailsAboutCity,
   renderDetailsTitle,
   renderErrorMessage,
 } from "./rendering.js";
-
-import { config, data1, data2, labelsArray, myChart } from "./chart";
-import { unixToNormalTime } from "./unixConvertions";
 
 export const getDataForPrint = function (cityName) {
   fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
     .then((response) => {
       if (!response.ok) {
-        containerSearch.style.border = "none";
         throw new Error(
           renderErrorMessage(
-            "Nie znaleziono miasta o takiej nazwie, spróbuj ponownie"
+            "Nie znaleziono miasta o takiej nazwie, spróbuj ponownie."
           )
         );
       }
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       renderSearchedCity(data);
-      containerSearch.classList.add("active");
     })
-    .catch((err) => console.error(err))
-    .finally(() => (containerSearch.style.opacity = 1));
+    .catch((err) => console.error(err));
 };
 
 export const getDataForObject = function (cityName) {
@@ -48,7 +37,7 @@ export const getDataForObject = function (cityName) {
       if (!response.ok)
         throw new Error(
           renderErrorMessage(
-            `Wystąpił błąd podczas pobierania danych ${response.status}`
+            `Wystąpił błąd podczas pobierania danych ${response.status}.`
           )
         );
       return response.json();
@@ -56,132 +45,65 @@ export const getDataForObject = function (cityName) {
     .then((data) => {
       addToCityArray(state.cities, data);
     })
-    .catch((err) => console.error(err))
-    .finally(() => (containerSearch.style.opacity = 1));
+    .catch((err) => console.error(err));
 };
 
-export const getCityName = function (lat, lon) {
-  fetch(`${GET_CITY_NAME_URL}lat=${lat}&lon=${lon}&lang=pl&appid=${MY_API_KEY}`)
+const getObcjectWithCoords = function (coords) {
+  fetch(
+    `${FORECAST_API_URL}lat=${coords.lat}&lon=${coords.lon}&units=metric&lang=pl&appid=${MY_API_KEY}`
+  )
     .then((response) => {
       if (!response.ok)
         throw new Error(
           renderErrorMessage(
-            `Wystąpił błąd podczas pobierania danych ${response.status}`
+            `Wystąpił błąd podczas pobierania danych ${response.status}.`
           )
         );
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-      renderDetailsTitle(data.city.name);
+    .then((objectData) => {
+      loopingThroughObjectFromFetch(objectData);
     });
 };
 
-// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-
-export const getDetailsAboutCity = function (cityName) {
-  fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(
-          renderErrorMessage(
-            `Wystąpił błąd podczas pobierania danych ${response.status}`
-          )
-        );
-      return response.json();
-    })
-    .then((data) => {
-      return fetch(
-        `${FORECAST_API_URL}lat=${data.coord.lat}&lon=${data.coord.lon}&units=metric&lang=pl&appid=${MY_API_KEY}`
-      )
-        .then((response) => {
-          if (!response.ok)
-            throw new Error(
-              renderErrorMessage(
-                `Wystąpił błąd podczas pobierania danych ${response.status}`
-              )
-            );
-          return response.json();
-        })
-        .then((objectData) => {
-          console.log(objectData);
-          getCityName(objectData.lat, objectData.lon);
-
-          let timeForGraph;
-          let feelLikeTempForGraph;
-          let realTempForGraph;
-          objectData.hourly.forEach((object) => {
-            let index = objectData.hourly.indexOf(object);
-            if (index < 12) {
-              timeForGraph = unixToNormalTime(
-                object.dt + objectData.timezone_offset - 3600
-              );
-              labelsArray.push(timeForGraph);
-
-              realTempForGraph = object.temp;
-              data1.data.push(realTempForGraph);
-
-              feelLikeTempForGraph = object.feels_like;
-              data2.data.push(feelLikeTempForGraph);
-
-              renderDetailsAboutCity(objectData, index);
-              myChart.update(config);
-            }
-          });
-        });
-    });
-};
-
-// export const sialalal = function (objectData) {
-//   // getCityName(objectData.lat, objectData.lon);
-
-//   let timeForGraph;
-//   let feelLikeTempForGraph;
-//   let realTempForGraph;
-//   objectData.hourly.forEach((object) => {
-//     let index = objectData.hourly.indexOf(object);
-//     if (index < 12) {
-//       timeForGraph = unixToNormalTime(
-//         object.dt + objectData.timezone_offset - 3600
-//       );
-//       labelsArray.push(timeForGraph);
-
-//       realTempForGraph = object.temp;
-//       data1.data.push(realTempForGraph);
-
-//       feelLikeTempForGraph = object.feels_like;
-//       data2.data.push(feelLikeTempForGraph);
-
-//       renderDetailsAboutCity(objectData, index);
-//       myChart.update(config);
-//     }
-//     myChart;
-//   });
+// export const getDetailsAboutCity =  function (cityName) {
+//   fetch(`${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`)
+//     .then((response) => {
+//       if (!response.ok)
+//         throw new Error(
+//           renderErrorMessage(
+//             `Wystąpił błąd podczas pobierania danych ${response.status}.`
+//           )
+//         );
+//       return response.json();
+//     })
+//     .then((data) => {
+//       const coords = data.coord;
+//       renderDetailsTitle(data.name);
+//       getObcjectWithCoords(coords);
+//     })
+//     .catch((err) => console.error(err));
 // };
 
-// obj.temp obj.pressure obj.humidity
+export const getDetailsAboutCity = async function (cityName) {
+  getJSON(cityName, "Wystąpił błąd podczas pobierania danych").then((data) => {
+    const coords = data.coord;
+    renderDetailsTitle(data.name);
+    getObcjectWithCoords(coords);
+  });
+};
 
-// getCityName(objectData.lat, objectData.lon);
+const getJSON = function (cityName, errorMsg) {
+  return fetch(
+    `${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
+  ).then((response) => {
+    if (!response.ok) throw new Error(`${renderErrorMessage(errorMsg)}`);
+    return response.json();
+  });
+};
 
-// let timeForGraph;
-// let feelLikeTempForGraph;
-// let realTempForGraph;
-// objectData.hourly.forEach((object) => {
-//   let index = objectData.hourly.indexOf(object);
-//   if (index < 12) {
-//     timeForGraph = unixToNormalTime(
-//       object.dt + objectData.timezone_offset - 3600
-//     );
-//     labelsArray.push(timeForGraph);
-
-//     realTempForGraph = object.temp;
-//     data1.data.push(realTempForGraph);
-
-//     feelLikeTempForGraph = object.feels_like;
-//     data2.data.push(feelLikeTempForGraph);
-
-//     renderDetailsAboutCity(objectData, index);
-//     myChart.update(config);
-//   }
-//   myChart;
-// });
+// const fetchAPI = function (cityName) {
+//   return fetch(
+//     `${BASE_API_URL}${cityName}&units=metric&lang=pl&appid=${MY_API_KEY}`
+//   );
+// };
