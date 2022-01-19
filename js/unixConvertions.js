@@ -1,17 +1,17 @@
 export const unixToNormalTime = function (unixTimestamp) {
-  let date = new Date(unixTimestamp * 1000);
-  let hours = date.getHours();
-  let minutes = "0" + date.getMinutes();
+  const date = new Date(unixTimestamp * 1000);
+  const hours = date.getHours();
+  const minutes = "0" + date.getMinutes();
 
-  let formattedTime = hours + " : 00";
+  const formattedTime = hours + " : 00";
   return formattedTime;
 };
 
 export const unixToDate = function (unixTimestamp) {
-  let miliseconds = unixTimestamp * 1000;
-  let dateObject = new Date(miliseconds);
+  const miliseconds = unixTimestamp * 1000;
+  const dateObject = new Date(miliseconds);
 
-  let humanDateFormat = dateObject.toLocaleString();
+  const humanDateFormat = dateObject.toLocaleString();
 
   return humanDateFormat;
 };

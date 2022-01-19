@@ -1,9 +1,8 @@
 import {
-  getDataForObject,
   getDataForPrint,
   getInputValue,
-  getDetailsAboutCity,
-  fetch,
+  getDataForForecast,
+  getDataForArray,
 } from "./apiCalls";
 import {
   containerSearch,
@@ -38,7 +37,7 @@ export const formHandler = function (event) {
 
 export const documentHandler = function (event) {
   if (event.target.id === "add-city-button") {
-    getDataForObject(getInputValue());
+    getDataForArray(getInputValue());
     containerSearch.innerHTML = "";
     containerSearch.classList.remove("active");
     inputV.value = "";
@@ -80,8 +79,7 @@ export const documentHandler = function (event) {
     chartContainer.classList.remove("hide");
     details.classList.remove("hide");
     searchContainer.classList.add("hide");
-
-    getDetailsAboutCity(cityName);
+    getDataForForecast(cityName);
   }
 
   if (event.target.classList.contains("close")) {
@@ -109,7 +107,6 @@ export const documentHandler = function (event) {
           removeItemFromLocalStorage(city);
         }
       }
-      // renderSelectedCities(getItemFromLocalStorage(city));
     }
   }
 };

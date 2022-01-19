@@ -3,7 +3,7 @@ export const state = {
 };
 
 export const MY_API_KEY = "1dd8639e06977072c7c8fcaea598d700";
-export const BASE_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=`;
+export const BASE_API_URL = `https://api.openweathermap.org/data/2.5/weather?`;
 export const FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/onecall?`;
 export const form = document.querySelector("#form");
 export const searchContainer = document.querySelector(".container");

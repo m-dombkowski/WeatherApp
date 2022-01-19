@@ -1,4 +1,3 @@
-import { firstCapital, renderErrorMessage } from "./rendering";
 import { unixToNormalTime } from "./unixConvertions";
 import {
   state,
@@ -11,6 +10,7 @@ import {
 } from "./variables";
 import {
   renderSelectedCities,
+  firstCapital,
   renderErrorMessage,
   renderDetailsAboutCity,
 } from "./rendering";
@@ -44,8 +44,7 @@ closeErrorWindow.addEventListener("click", function () {
 });
 
 export const getInputValue = function () {
-  let inputValue = document.getElementById("input").value;
-  return inputValue;
+  return document.getElementById("input").value;
 };
 
 export const createCityObject = function (data) {
