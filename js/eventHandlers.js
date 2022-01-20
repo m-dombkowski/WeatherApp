@@ -17,6 +17,7 @@ import {
   searchContainer,
   startSearchButton,
   formContainer,
+  footerContainer,
 } from "./variables";
 import { removeItemFromLocalStorage } from "./localStorage";
 import { getInputValue } from "./script";
@@ -53,6 +54,7 @@ export const documentHandler = function (event) {
     chartContainer.classList.add("hide");
     details.classList.add("hide");
     searchContainer.classList.remove("hide");
+    footerContainer.classList.remove("hide");
 
     details.textContent = "";
     titleDetailsContainer.innerHTML = "";
@@ -80,6 +82,7 @@ export const documentHandler = function (event) {
     chartContainer.classList.remove("hide");
     details.classList.remove("hide");
     searchContainer.classList.add("hide");
+    footerContainer.classList.add("hide");
     getTitleForForecast(cityName);
     getDataForForecast(cityName);
   }

@@ -26,3 +26,4 @@ export const formContainer = document.querySelector(".form-container");
 export const errorMessage = document.querySelector(".error-msg");
 export const errorWindow = document.querySelector(".error-window");
 export const closeErrorWindow = document.querySelector(".close-error-window");
+export const footerContainer = document.querySelector(".footer-container");

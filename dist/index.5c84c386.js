@@ -726,6 +726,8 @@ parcelHelpers.export(exports, "errorWindow", ()=>errorWindow
 );
 parcelHelpers.export(exports, "closeErrorWindow", ()=>closeErrorWindow
 );
+parcelHelpers.export(exports, "footerContainer", ()=>footerContainer
+);
 const state = {
     cities: []
 };
@@ -753,6 +755,7 @@ const formContainer = document.querySelector(".form-container");
 const errorMessage = document.querySelector(".error-msg");
 const errorWindow = document.querySelector(".error-window");
 const closeErrorWindow = document.querySelector(".close-error-window");
+const footerContainer = document.querySelector(".footer-container");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"l127X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -874,6 +877,7 @@ const documentHandler = function(event) {
         _variables.chartContainer.classList.add("hide");
         _variables.details.classList.add("hide");
         _variables.searchContainer.classList.remove("hide");
+        _variables.footerContainer.classList.remove("hide");
         _variables.details.textContent = "";
         _variables.titleDetailsContainer.innerHTML = "";
         _chart.labelsArray.splice(0, _chart.labelsArray.length);
@@ -892,6 +896,7 @@ const documentHandler = function(event) {
         _variables.chartContainer.classList.remove("hide");
         _variables.details.classList.remove("hide");
         _variables.searchContainer.classList.add("hide");
+        _variables.footerContainer.classList.add("hide");
         _apiCalls.getTitleForForecast(cityName);
         _apiCalls.getDataForForecast(cityName);
     }
