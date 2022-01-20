@@ -1,7 +1,11 @@
 import { MY_API_KEY, state, BASE_API_URL, FORECAST_API_URL } from "./variables";
 import { addToCityArray, loopingThroughObjectFromFetch } from "./script";
 
-import { renderSearchedCity, renderErrorMessage } from "./rendering.js";
+import {
+  renderSearchedCity,
+  renderErrorMessage,
+  renderDetailsTitle,
+} from "./rendering.js";
 import { URLSearchParams } from "core-js/modules/web.url-search-params";
 
 const resolveParams = function (params) {
@@ -48,8 +52,14 @@ export const getDataForPrint = async function (cityName) {
 
 export const getDataForForecast = async function (cityName) {
   const city = await getDetailsAboutCityRequest(cityName);
+
   const { lat, lon } = city.coord;
   const forecast = await getForeCastRequest(lat, lon);
 
   loopingThroughObjectFromFetch(forecast);
+};
+
+export const getTitleForForecast = async function (cityName) {
+  const city = await getDetailsAboutCityRequest(cityName);
+  renderDetailsTitle(city.name);
 };

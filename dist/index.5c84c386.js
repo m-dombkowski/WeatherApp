@@ -586,6 +586,7 @@ const loopingThroughObjectFromFetch = function(objectData) {
     let timeForGraph;
     let feelLikeTempForGraph;
     let realTempForGraph;
+    console.log(objectData);
     objectData.hourly.forEach((object)=>{
         let index = objectData.hourly.indexOf(object);
         if (index < 12) {
@@ -621,87 +622,7 @@ const innit = function() {
 };
 innit();
 
-},{"./rendering":"l127X","./unixConvertions":"7zFZT","./variables":"bvO1j","./eventHandlers":"aiXIl","./localStorage":"5M63G","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./chart":"04l2d"}],"l127X":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "renderSearchedCity", ()=>renderSearchedCity
-);
-parcelHelpers.export(exports, "renderSelectedCities", ()=>renderSelectedCities
-);
-parcelHelpers.export(exports, "renderDetailsAboutCity", ()=>renderDetailsAboutCity
-);
-parcelHelpers.export(exports, "renderDetailsTitle", ()=>renderDetailsTitle
-);
-parcelHelpers.export(exports, "firstCapital", ()=>firstCapital
-);
-parcelHelpers.export(exports, "renderErrorMessage", ()=>renderErrorMessage
-);
-var _unixConvertions = require("./unixConvertions");
-var _variables = require("./variables");
-const renderSearchedCity = function(data) {
-    const html = `
-  <li class="searched-city">
-    <h1 class="city-name">${data.name}</h1>
-    <p class="date-time">${_unixConvertions.unixToNormalTime(data.dt + data.timezone - 3600)}</p>
-    <p class="weather-type">${firstCapital(data.weather[0].description)}</p>
-    <h2 class="temperature">${Math.round(data.main.temp)}°C</h2>
-    <div class="secondary-information">
-      <p class="humidity">Wilgotność:</br> ${data.main.humidity}%</p>
-      <p class="pressure">Ciśnienie:</br> ${data.main.pressure} hPa</p>
-    </div>
-    <div class="add-city">
-      <button id="add-city-button">Dodaj miasto do śledzonych</button>
-    </div>
-  </li>
-`;
-    _variables.containerSearch.insertAdjacentHTML("beforeend", html);
-};
-const renderSelectedCities = function(data) {
-    let html = `
-  <li class="country">
-    <button class="close" title="Usuń ze śledzonych">x</button>
-    <h1 class="city-name">${data.name}</h1>
-    <p class="date-time">${data.time}</p>
-    <p class="weather-type">${data.weather}</p>
-    <h2 class="temperature">${Math.round(data.temperature)}°C</h2>
-    <div class="secondary-information">
-      <p class="humidity">Wilgotność:</br> ${data.humidity}%</p>
-      <p class="pressure">Ciśnienie:</br> ${data.pressure} hPa</p>
-    </div>
-    <button class='check-details'>Sprawdź pogodę na 12 godzin!</button>
-  </li>
-`;
-    _variables.selectedCitiesList.insertAdjacentHTML("beforeend", html);
-};
-const renderDetailsAboutCity = function(data, index) {
-    let html = `
-  
-  <li class="details">
-    <p class="details-time">${_unixConvertions.unixToDate(data.hourly[index].dt + data.timezone_offset - 3600)}</p>
-    <p class="details-temp">Temperatura: ${data.hourly[index].temp.toFixed(1)}°C</p>
-    <p class="details-feels-like">Odczuwalna: ${data.hourly[index].feels_like.toFixed(1)}°C</p>
-    <p class="details-wind">Wiatr: ${(data.hourly[index].wind_speed * 3.6).toFixed(1)} km/h</p>
-  </li>`;
-    _variables.details.insertAdjacentHTML("beforeend", html);
-};
-const renderDetailsTitle = function(data) {
-    let html = `
-  <h1 class="details-city">${data}</h1>
-  `;
-    _variables.titleDetailsContainer.insertAdjacentHTML("afterbegin", html);
-};
-const firstCapital = function(string) {
-    let word = string.split(" ");
-    const sentence = word[0].charAt(0).toUpperCase() + string.slice(1);
-    return sentence;
-};
-const renderErrorMessage = function(message) {
-    let html = `<p>${message}</p>`;
-    _variables.errorWindow.style.display = "block";
-    _variables.errorMessage.insertAdjacentHTML("afterbegin", html);
-};
-
-},{"./unixConvertions":"7zFZT","./variables":"bvO1j","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7zFZT":[function(require,module,exports) {
+},{"./unixConvertions":"7zFZT","./variables":"bvO1j","./rendering":"l127X","./eventHandlers":"aiXIl","./localStorage":"5M63G","./chart":"04l2d","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7zFZT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "unixToNormalTime", ()=>unixToNormalTime
@@ -833,7 +754,86 @@ const errorMessage = document.querySelector(".error-msg");
 const errorWindow = document.querySelector(".error-window");
 const closeErrorWindow = document.querySelector(".close-error-window");
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aiXIl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"l127X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderSearchedCity", ()=>renderSearchedCity
+);
+parcelHelpers.export(exports, "renderSelectedCities", ()=>renderSelectedCities
+);
+parcelHelpers.export(exports, "renderDetailsAboutCity", ()=>renderDetailsAboutCity
+);
+parcelHelpers.export(exports, "renderDetailsTitle", ()=>renderDetailsTitle
+);
+parcelHelpers.export(exports, "firstCapital", ()=>firstCapital
+);
+parcelHelpers.export(exports, "renderErrorMessage", ()=>renderErrorMessage
+);
+var _unixConvertions = require("./unixConvertions");
+var _variables = require("./variables");
+const renderSearchedCity = function(data) {
+    const html = `
+  <li class="searched-city">
+    <h1 class="city-name">${data.name}</h1>
+    <p class="date-time">${_unixConvertions.unixToNormalTime(data.dt + data.timezone - 3600)}</p>
+    <p class="weather-type">${firstCapital(data.weather[0].description)}</p>
+    <h2 class="temperature">${Math.round(data.main.temp)}°C</h2>
+    <div class="secondary-information">
+      <p class="humidity">Wilgotność:</br> ${data.main.humidity}%</p>
+      <p class="pressure">Ciśnienie:</br> ${data.main.pressure} hPa</p>
+    </div>
+    <div class="add-city">
+      <button id="add-city-button">Dodaj miasto do śledzonych</button>
+    </div>
+  </li>
+`;
+    _variables.containerSearch.insertAdjacentHTML("beforeend", html);
+};
+const renderSelectedCities = function(data) {
+    let html = `
+  <li class="country">
+    <button class="close" title="Usuń ze śledzonych">x</button>
+    <h1 class="city-name">${data.name}</h1>
+    <p class="date-time">${data.time}</p>
+    <p class="weather-type">${data.weather}</p>
+    <h2 class="temperature">${Math.round(data.temperature)}°C</h2>
+    <div class="secondary-information">
+      <p class="humidity">Wilgotność:</br> ${data.humidity}%</p>
+      <p class="pressure">Ciśnienie:</br> ${data.pressure} hPa</p>
+    </div>
+    <button class='check-details'>Sprawdź pogodę na 12 godzin!</button>
+  </li>
+`;
+    _variables.selectedCitiesList.insertAdjacentHTML("beforeend", html);
+};
+const renderDetailsAboutCity = function(data, index) {
+    let html = `
+  
+  <li class="details">
+    <p class="details-time">${_unixConvertions.unixToDate(data.hourly[index].dt + data.timezone_offset - 3600)}</p>
+    <p class="details-temp">Temperatura: ${data.hourly[index].temp.toFixed(1)}°C</p>
+    <p class="details-feels-like">Odczuwalna: ${data.hourly[index].feels_like.toFixed(1)}°C</p>
+    <p class="details-wind">Wiatr: ${(data.hourly[index].wind_speed * 3.6).toFixed(1)} km/h</p>
+  </li>`;
+    _variables.details.insertAdjacentHTML("beforeend", html);
+};
+const renderDetailsTitle = function(data) {
+    let html = `
+  <h1 class="details-city">${data}</h1>
+  `;
+    _variables.titleDetailsContainer.insertAdjacentHTML("afterbegin", html);
+};
+const firstCapital = function(string) {
+    const sentence = string.charAt(0).toUpperCase() + string.slice(1);
+    return sentence;
+};
+const renderErrorMessage = function(message) {
+    let html = `<p>${message}</p>`;
+    _variables.errorWindow.style.display = "block";
+    _variables.errorMessage.insertAdjacentHTML("afterbegin", html);
+};
+
+},{"./unixConvertions":"7zFZT","./variables":"bvO1j","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"aiXIl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "startSearch", ()=>startSearch
@@ -892,6 +892,7 @@ const documentHandler = function(event) {
         _variables.chartContainer.classList.remove("hide");
         _variables.details.classList.remove("hide");
         _variables.searchContainer.classList.add("hide");
+        _apiCalls.getTitleForForecast(cityName);
         _apiCalls.getDataForForecast(cityName);
     }
     if (event.target.classList.contains("close")) {
@@ -927,6 +928,8 @@ parcelHelpers.export(exports, "getDataForArray", ()=>getDataForArray
 parcelHelpers.export(exports, "getDataForPrint", ()=>getDataForPrint
 );
 parcelHelpers.export(exports, "getDataForForecast", ()=>getDataForForecast
+);
+parcelHelpers.export(exports, "getTitleForForecast", ()=>getTitleForForecast
 );
 var _variables = require("./variables");
 var _script = require("./script");
@@ -974,8 +977,12 @@ const getDataForForecast = async function(cityName) {
     const forecast = await getForeCastRequest(lat, lon);
     _script.loopingThroughObjectFromFetch(forecast);
 };
+const getTitleForForecast = async function(cityName) {
+    const city = await getDetailsAboutCityRequest(cityName);
+    _renderingJs.renderDetailsTitle(city.name);
+};
 
-},{"./variables":"bvO1j","./script":"ijsRf","./rendering.js":"l127X","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","core-js/modules/web.url-search-params":"gLlKq"}],"gLlKq":[function(require,module,exports) {
+},{"./variables":"bvO1j","./script":"ijsRf","./rendering.js":"l127X","core-js/modules/web.url-search-params":"gLlKq","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"gLlKq":[function(require,module,exports) {
 'use strict';
 // TODO: in core-js@4, move /modules/ dependencies to public entries for better optimization by tools like `preset-env`
 require('../modules/es.array.iterator');

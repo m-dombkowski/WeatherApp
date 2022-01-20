@@ -3,6 +3,7 @@ import {
   getInputValue,
   getDataForForecast,
   getDataForArray,
+  getTitleForForecast,
 } from "./apiCalls";
 import {
   containerSearch,
@@ -79,6 +80,7 @@ export const documentHandler = function (event) {
     chartContainer.classList.remove("hide");
     details.classList.remove("hide");
     searchContainer.classList.add("hide");
+    getTitleForForecast(cityName);
     getDataForForecast(cityName);
   }
 

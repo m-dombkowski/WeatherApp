@@ -75,8 +75,7 @@ export const renderDetailsTitle = function (data) {
 };
 
 export const firstCapital = function (string) {
-  let word = string.split(" ");
-  const sentence = word[0].charAt(0).toUpperCase() + string.slice(1);
+  const sentence = string.charAt(0).toUpperCase() + string.slice(1);
 
   return sentence;
 };

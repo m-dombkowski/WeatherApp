@@ -18,42 +18,76 @@
     <title>Weather app</title>
   </head>
   <body>
-    <div class="error-window">
-      <div class="close-btn"><button class="close-error-window">x</button></div>
-      <div class="error-msg"></div>
-    </div>
-    <div class="container">
-      <div class="form-container hide">
-        <form id="form">
-          <input id="input" type="text" placeholder="Wpisz nazwe miasta" />
-          <button class="search-button">
-            <img class="search" src="svg_icons/search.svg" />
-          </button>
-        </form>
+    <main>
+      <div class="error-window">
+        <div class="close-btn">
+          <button class="close-error-window">x</button>
+        </div>
+        <div class="error-msg"></div>
       </div>
-      <button class="start-search">Znajdź miasto</button>
-    </div>
+      <section class="section-form">
+        <div class="container">
+          <div class="form-container hide">
+            <form id="form">
+              <input id="input" type="text" placeholder="Wpisz nazwe miasta" />
+              <button class="search-button">
+                <img class="search" src="svg_icons/search.svg" />
+              </button>
+            </form>
+          </div>
+          <button class="start-search">Znajdź miasto</button>
+        </div>
+      </section>
+      <section class="section-searched">
+        <div class="container-search">
+          <ul class="search-container"></ul>
+        </div>
+      </section>
+      <section class="section-selected">
+        <div class="container-selected">
+          <ul class="selected-cities"></ul>
+        </div>
+      </section>
+      <section class="section-forecast">
+        <div class="details-container">
+          <div class="details-flex hide">
+            <p class="details-city-p">Prognoza 12 godzinna dla:</p>
+            <div class="title-container"></div>
+            <button class="go-back" id="go-back">Wróc</button>
+          </div>
 
-    <div class="container-search">
-      <ul class="search-container"></ul>
-    </div>
+          <ul class="details-forecast hide"></ul>
+          <div class="chart-container hide">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <p class="footer-text">Wykonane przez Mateusza Dombkowskiego &copy;</p>
+        <div class="social-icons">
+          <a
+            href="https://github.com/m-dombkowski"
+            class="social"
+            title="My Github profile"
+            target="_blank"
+          >
+            <img class="github-icon" src="svg_icons/github-svgrepo-com.svg" />
+          </a>
 
-    <div class="container-selected">
-      <ul class="selected-cities"></ul>
-    </div>
-
-    <div class="details-container">
-      <div class="details-flex hide">
-        <p class="details-city-p">Prognoza 12 godzinna dla:</p>
-        <div class="title-container"></div>
-        <button class="go-back" id="go-back">Go back</button>
+          <a
+            href="https://mateuszdombkowski.netlify.app/"
+            ,
+            title="Sprawdź moją stronę!"
+            ,
+            target="_blank"
+          >
+            <img class="homepage-icon" src="svg_icons/home-svgrepo-com.svg" />
+          </a>
+        </div>
       </div>
-
-      <ul class="details-forecast hide"></ul>
-      <div class="chart-container hide">
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
+    </footer>
     <script type="module" src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>

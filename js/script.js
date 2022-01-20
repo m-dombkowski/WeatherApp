@@ -13,6 +13,7 @@ import {
   firstCapital,
   renderErrorMessage,
   renderDetailsAboutCity,
+  renderDetailsTitle,
 } from "./rendering";
 import { formHandler, documentHandler, startSearch } from "./eventHandlers";
 import { addToLocalStorage, getItemFromLocalStorage } from "./localStorage";
@@ -81,6 +82,7 @@ export const loopingThroughObjectFromFetch = function (objectData) {
   let timeForGraph;
   let feelLikeTempForGraph;
   let realTempForGraph;
+  console.log(objectData);
   objectData.hourly.forEach((object) => {
     let index = objectData.hourly.indexOf(object);
     if (index < 12) {

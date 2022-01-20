@@ -6,6 +6,11 @@
   .selected-cities {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  footer {
+    position: relative;
+    margin-top: 10rem;
+  }
 }
 
 @media (max-width: 1140px) {
@@ -13,7 +18,8 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .selected-cities {
+  .selected-cities,
+  .container-search {
     gap: 2rem;
   }
 }
@@ -56,6 +62,11 @@
   .selected-cities {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 520px) {
@@ -63,7 +74,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 470px) {
   .container-search {
     grid-template-columns: 1fr;
@@ -71,6 +81,11 @@
 
   .selected-cities {
     grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    text-align: center;
+    line-height: 1.5;
   }
 }
 
