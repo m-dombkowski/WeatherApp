@@ -16,13 +16,12 @@ const resolveParams = function (params) {
 };
 
 const apiRequest = async function (url, params) {
-  try {
-    const paramsAsString = resolveParams(params);
-    const response = await fetch(url + paramsAsString);
-    return await response.json();
-  } catch (error) {
-    renderErrorMessage(error);
+  const paramsAsString = resolveParams(params);
+  const response = await fetch(url + paramsAsString);
+  if (!response.ok) {
+    renderErrorMessage("Nie można znaleźć tego miasta, spróbuj ponownie!");
   }
+  return await response.json();
 };
 
 const getDetailsAboutCityRequest = async function (cityName) {

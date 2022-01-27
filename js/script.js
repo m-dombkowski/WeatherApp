@@ -13,7 +13,6 @@ import {
   firstCapital,
   renderErrorMessage,
   renderDetailsAboutCity,
-  renderDetailsTitle,
 } from "./rendering";
 import { formHandler, documentHandler, startSearch } from "./eventHandlers";
 import { addToLocalStorage, getItemFromLocalStorage } from "./localStorage";
